@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Hamburger from "./Hamburger";
 import MobileNavMenu from "./MobileNavMenu";
+import { AnimatePresence } from "framer-motion";
 
 const StyledButton = styled.button`
   top: 12px;
@@ -26,7 +27,10 @@ export default function MobileNavBar() {
       >
         <Hamburger />
       </StyledButton>
-      {showMobileNav ? <MobileNavMenu /> : null}
+
+      <AnimatePresence>
+        {showMobileNav ? <MobileNavMenu /> : null}
+      </AnimatePresence>
     </>
   );
 }

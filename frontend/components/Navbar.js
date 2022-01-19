@@ -6,21 +6,25 @@ import MobileNavPortal from "./MobileNavbarPortal";
 import { useState } from "react";
 import MobileNavBar from "./MobileNavbar";
 import LogoLink from "./LogoLink";
+import NavItem from "./NavItem";
+import useScrollPositon from "../hooks/useScrollPosition";
 
-const MaxWidthWrapper = styled.div`
+const Header = styled.div`
   position: sticky;
   top: 0px;
   z-index: 2;
-  padding: 0 32px;
-  max-width: var(--maxWidth);
-  margin: 0 auto;
-  background: var(--white);
+  background: ${(props) =>
+    props.scrollPosition > 20 ? "var(--white)" : "none"};
+  box-shadow: ${(props) =>
+    props.scrollPosition > 20 ? "var(--shadow-elevation-medium)" : "none"};
   .Header__Wrapper {
+    margin: 0 auto;
+    max-width: var(--maxWidth);
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px;
+    padding: 0px 32px;
   }
   .Header__Left {
     flex: 1 1 0%;
@@ -51,7 +55,7 @@ const MaxWidthWrapper = styled.div`
   .NavItem__NavItemLink {
     position: relative;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-decoration: none;
     color: var(--black);
   }
@@ -61,13 +65,19 @@ const MaxWidthWrapper = styled.div`
     }
   }
   .DarkModeToggle__IconWrapper {
+    svg {
+      height: 24px;
+      width: 21.45px;
+    }
   }
 `;
 
 export default function Navbar() {
+  const scrollPosition = useScrollPositon();
+  console.log(scrollPosition);
   return (
-    <MaxWidthWrapper>
-      <header className="Header__Wrapper">
+    <Header scrollPosition={scrollPosition}>
+      <div className="Header__Wrapper">
         <div className="Header__Left">
           <div className="Logo__Wrapper">
             <LogoLink />
@@ -75,38 +85,19 @@ export default function Navbar() {
           <nav className="Navigation__Wrapper">
             <ul className="Navigation__List">
               <li className="Navigation__ListItem">
-                <div className="NavItem__Wrapper">
-                  <Link href="/projects">
-                    <a className="NavItem__NavItemLink">Projects</a>
-                  </Link>
-                </div>
+                <NavItem title={"projects"} scroll={true} />
               </li>
               <li className="Navigation__ListItem">
-                <div className="NavItem__Wrapper">
-                  <Link href="/process">
-                    <a className="NavItem__NavItemLink">Process</a>
-                  </Link>
-                </div>
+                <NavItem title={"process"} />
               </li>
               <li className="Navigation__ListItem">
-                <div className="NavItem__Wrapper">
-                  <Link href="/blog">
-                    <a className="NavItem__NavItemLink">Blog</a>
-                  </Link>
-                </div>
-              </li>
-              <li className="Navigation__ListItem">
-                <div className="NavItem__Wrapper">
-                  <Link href="/about">
-                    <a className="NavItem__NavItemLink">About</a>
-                  </Link>
-                </div>
+                <NavItem title={"about"} />
               </li>
               <li className="Navigation__ListItem">
                 <div className="NavItem__Wrapper">
                   <a
                     className="NavItem__NavItemLink"
-                    href="https://drive.google.com/file/d/1YECREGOHfolmrIrjWCqNfxFzJjUaPq0S/view"
+                    href="/Alex-Andres-Resume.pdf"
                   >
                     Resume
                   </a>
@@ -129,8 +120,8 @@ export default function Navbar() {
             <MobileNavBar />
           </MobileNavPortal>
         </div>
-      </header>
+      </div>
       {}
-    </MaxWidthWrapper>
+    </Header>
   );
 }
