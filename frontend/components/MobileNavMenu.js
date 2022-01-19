@@ -7,6 +7,9 @@ const StyledMobileNavMenu = styled.div`
   overflow: hidden;
   inset: 0px;
   z-index: 10000;
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
   .MobileNav__Nav {
     position: absolute;
     left: 0px;
