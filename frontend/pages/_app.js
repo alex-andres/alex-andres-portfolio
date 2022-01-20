@@ -42,11 +42,62 @@ const GlobalStyle = createGlobalStyle`
       13.5px 27px 34px -1.9px hsl(var(--shadow-color) / 0.27),
       18.5px 37.1px 46.6px -2.2px hsl(var(--shadow-color) / 0.27),
       25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.27);
-  }
     margin: 0;
     line-height: calc(1em + 0.625rem);
     -webkit-font-smoothing: antialiased;
   }
+  /*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
   *,::before, ::after{
     box-sizing: border-box;
   }
@@ -74,6 +125,10 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+  h1, h2, h3, h4, h5, h6, p{
+    font-weight: 300;
+  }
+
   ul{
     padding: 0px;
   }
