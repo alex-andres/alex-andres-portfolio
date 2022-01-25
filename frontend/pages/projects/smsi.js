@@ -113,7 +113,7 @@ export default function SMSIPage() {
           Portfolio
         </title>
         <meta
-          property="description"
+          name="description"
           content="Sheet Metal Systems Inc. Business Website project overview including
           details about purpose of the project, techstack, lessons learned, and
           images. Website Development and Web Design in Los Angeles, CA."

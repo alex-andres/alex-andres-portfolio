@@ -12,7 +12,7 @@ export default function IndexPage() {
       <Head>
         <title>Home - Alex Andres Development Portfolio</title>
         <meta
-          property="description"
+          name="description"
           content="
           The web devleopment portfolio of Alex Andres, a Los Angeles, CA based
           web developer. Alex specializes in developing websites and apps for

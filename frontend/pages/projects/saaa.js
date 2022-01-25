@@ -113,7 +113,7 @@ export default function SAAAPage() {
           Development Portfolio
         </title>
         <meta
-          property="description"
+          name="description"
           content="
           Sabrina Andres Art Advisory Business Website project overview
           including details about purpose of the project, techstack, lessons

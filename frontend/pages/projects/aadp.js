@@ -122,7 +122,7 @@ export default function AADPPage() {
           Portfolio
         </title>
         <meta
-          property="description"
+          name="description"
           content="
           Alex Andres Development Portfolio Details including details about
           purpose of the project, techstack, lessons learned, and images.

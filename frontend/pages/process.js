@@ -88,7 +88,7 @@ export default function ProcessPage() {
           My Development Process - Alex Andres Development Portfolio
         </title>
         <meta
-          property="description"
+          name="description"
           content="Information on the development process of Alex Andres, a Los Angeles,
           CA based web developer. Alex specializes in developing websites and
           apps for small and medium size businesses with the latest proven
