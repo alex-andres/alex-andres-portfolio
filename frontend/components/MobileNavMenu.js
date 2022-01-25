@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { RiMoonFill, RiSunLine } from "react-icons/ri";
+import { useMenuContext } from "../state/Menu";
 
 const StyledMobileNavMenu = styled.div`
   position: fixed;
@@ -53,33 +54,42 @@ const StyledMobileNavMenu = styled.div`
   }
 `;
 export default function MobileNavMenu() {
+  const { closeMenu } = useMenuContext();
   return (
     <StyledMobileNavMenu>
       <button className="MobileNav__Backdrop" />
       <nav className="MobileNav__Nav">
         <div className="MobileNav__Top">
           <div>
-            <Link href="/projects">
-              <a className="MobileNav__NavLink">Projects</a>
-            </Link>
+            <a
+              onClick={closeMenu}
+              href="#projects"
+              className="MobileNav__NavLink"
+            >
+              Projects
+            </a>
           </div>
           <div>
-            <Link href="/process">
+            <Link onClick={closeMenu} href="/process">
               <a className="MobileNav__NavLink">Process</a>
             </Link>
           </div>
-          <div>
+          {/* <div>
             <Link href="/blog">
               <a className="MobileNav__NavLink">Blog</a>
             </Link>
-          </div>
+          </div> */}
           <div>
-            <Link href="/about">
+            <Link onClick={closeMenu} href="/about">
               <a className="MobileNav__NavLink">About</a>
             </Link>
           </div>
           <div>
-            <a href="/Alex-Andres-Resume.pdf" className="MobileNav__NavLink">
+            <a
+              onClick={closeMenu}
+              href="/Alex-Andres-Resume.pdf"
+              className="MobileNav__NavLink"
+            >
               Resume
             </a>
           </div>
