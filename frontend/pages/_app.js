@@ -12,14 +12,15 @@ const GlobalStyle = createGlobalStyle`
   }
   :root{
     --black: hsl(0, 0%, 3%);
+    --darkgrey: hsl(0, 0%, 20%);
     --white: hsl(0, 100%, 100%);
     --transparentSeaFoam: hsl(143,100%,98%);
     --seaFoam: 	hsl(138, 42%, 65%);
     --aqua: hsl(175, 37%, 40%);
     --darkTeal: 	hsl(181, 56%, 17%);
     --dropShadow: hsla(0, 0%, 0%, 30%);
-    --maxWidth: 1100px;
-    --boxShadow: 0 3px 6px var(--dropShadow);
+    --maxWidth: 1164px;
+    --boxShadow: 2px 2px 8px var(--dropShadow);
     --shadow-color: 0deg 0% 63%;
     --shadow-elevation-low:
       0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
@@ -45,6 +46,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     line-height: calc(1em + 0.625rem);
     -webkit-font-smoothing: antialiased;
+    font-size: 1rem;
   }
   /*
   1. Use a more-intuitive box-sizing model.
@@ -98,6 +100,25 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+#__next{
+  position: relative;
+  ::before{
+      content: "";
+      position: fixed;
+      top:0;
+      right: 0;
+      height: 150vh;
+      aspect-ratio: 75/66;
+      background: url(./logo.svg);
+      filter: opacity(10%);
+      z-index: -1;
+      @media only screen and (min-width: 1080px){
+        top: 0;
+        right: 0;
+        height: 200vh;
+      }
+    }
+}
   *,::before, ::after{
     box-sizing: border-box;
   }
@@ -110,23 +131,21 @@ p, h1, h2, h3, h4, h5, h6 {
     font-family: Outfit, --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     position: relative;
     
-    ::before{
-      content: "";
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      height: inherit;
-      aspect-ratio: 75/66;
-      background: url(./logo.svg);
-      filter: opacity(10%);
-      z-index: -1;
-      @media (min-width: 1080px){
-        position: absolute;
-      }
-    }
+    
+    line-height: 1.5;
   }
   h1, h2, h3, h4, h5, h6, p{
     font-weight: 300;
+  }
+
+  h1{
+    font-size: 3.125rem;
+  } 
+  h2{
+    font-size: 2.5rem;
+    @media only screen and (min-width: 1201px){
+      font-size: 4rem;
+    }
   }
 
   ul{
@@ -141,6 +160,9 @@ p, h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     text-align: left;
     font: inherit;
+  }
+  a{
+    text-decoration: none;
   }
 `;
 const theme = {

@@ -14,9 +14,9 @@ const Header = styled.div`
   top: 0px;
   z-index: 2;
   background: ${(props) =>
-    props.scrollPosition > 20 ? "var(--white)" : "none"};
+    props.scrollPosition > 32 ? "var(--white)" : "none"};
   box-shadow: ${(props) =>
-    props.scrollPosition > 20 ? "var(--shadow-elevation-medium)" : "none"};
+    props.scrollPosition > 32 ? "var(--shadow-elevation-medium)" : "none"};
   .Header__Wrapper {
     margin: 0 auto;
     max-width: var(--maxWidth);
@@ -24,7 +24,10 @@ const Header = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 32px;
+    padding: 0px 16px;
+    @media only screen and (min-width: 768px) {
+      padding: 0px 32px;
+    }
   }
   .Header__Left {
     flex: 1 1 0%;
