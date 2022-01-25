@@ -5,6 +5,7 @@ import MobileNavBar from "./MobileNavBar";
 import LogoLink from "./LogoLink";
 import NavItem from "./NavItem";
 import useScrollPositon from "../hooks/useScrollPosition";
+import { MenuProvider } from "../state/Menu";
 
 const Header = styled.div`
   position: sticky;
@@ -76,52 +77,52 @@ export default function Navbar() {
   const scrollPosition = useScrollPositon();
   console.log(scrollPosition);
   return (
-    <Header scrollPosition={scrollPosition}>
-      <div className="Header__Wrapper">
-        <div className="Header__Left">
-          <div className="Logo__Wrapper">
-            <LogoLink />
+    <MenuProvider>
+      <Header scrollPosition={scrollPosition}>
+        <div className="Header__Wrapper">
+          <div className="Header__Left">
+            <div className="Logo__Wrapper">
+              <LogoLink />
+            </div>
+            <nav className="Navigation__Wrapper">
+              <ul className="Navigation__List">
+                <li className="Navigation__ListItem">
+                  <NavItem title={"projects"} scroll={true} />
+                </li>
+                <li className="Navigation__ListItem">
+                  <NavItem title={"process"} />
+                </li>
+                <li className="Navigation__ListItem">
+                  <NavItem title={"about"} />
+                </li>
+                <li className="Navigation__ListItem">
+                  <div className="NavItem__Wrapper">
+                    <a
+                      className="NavItem__NavItemLink"
+                      href="/Alex-Andres-Resume.pdf"
+                    >
+                      Resume
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <nav className="Navigation__Wrapper">
-            <ul className="Navigation__List">
-              <li className="Navigation__ListItem">
-                <NavItem title={"projects"} scroll={true} />
-              </li>
-              <li className="Navigation__ListItem">
-                <NavItem title={"process"} />
-              </li>
-              <li className="Navigation__ListItem">
-                <NavItem title={"about"} />
-              </li>
-              <li className="Navigation__ListItem">
-                <div className="NavItem__Wrapper">
-                  <a
-                    className="NavItem__NavItemLink"
-                    href="/Alex-Andres-Resume.pdf"
-                  >
-                    Resume
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div className="Header__RightDesktop">
-          <button
-            aria-label="Activate Dark Mode"
-            title="Activate Dark Mode"
-            className="DarkModeToggle__IconWrapper"
-          >
-            <RiMoonFill />
-          </button>
-        </div>
-        <div className="Header__RightMobile">
-          <MobileNavPortal>
+          <div className="Header__RightDesktop">
+            <button
+              aria-label="Activate Dark Mode"
+              title="Activate Dark Mode"
+              className="DarkModeToggle__IconWrapper"
+            >
+              <RiMoonFill />
+            </button>
+          </div>
+          <div className="Header__RightMobile">
             <MobileNavBar />
-          </MobileNavPortal>
+          </div>
         </div>
-      </div>
-      {}
-    </Header>
+        {}
+      </Header>
+    </MenuProvider>
   );
 }
