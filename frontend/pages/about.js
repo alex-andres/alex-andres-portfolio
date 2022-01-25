@@ -50,10 +50,11 @@ export default function AboutPage() {
     <StyledAboutPage>
       <Head>
         <title>About Alex Andres - Alex Andres Development Portfolio</title>
-        <meta property="description">
-          Learn more about Alex's professional background and personal
-          interests. Website Development and Web Design in Los Angeles, CA.
-        </meta>
+        <meta
+          property="description"
+          content="Learn more about Alex&#39;s professional background and personal
+          interests. Website Development and Web Design in Los Angeles, CA."
+        />
       </Head>
       <MaxWidthWrapper>
         <HeaderSection data={headerData} />

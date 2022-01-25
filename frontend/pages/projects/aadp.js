@@ -121,11 +121,13 @@ export default function AADPPage() {
           Alex Andres Portfolio - Project Details - Alex Andres Development
           Portfolio
         </title>
-        <meta property="description">
+        <meta
+          property="description"
+          content="
           Alex Andres Development Portfolio Details including details about
           purpose of the project, techstack, lessons learned, and images.
-          Website Development and Web Design in Los Angeles, CA.
-        </meta>
+          Website Development and Web Design in Los Angeles, CA."
+        />
       </Head>
       <MaxWidthWrapper>
         <ProjectHeader data={project.header} />

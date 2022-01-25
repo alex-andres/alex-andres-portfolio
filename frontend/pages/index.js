@@ -11,12 +11,14 @@ export default function IndexPage() {
     <>
       <Head>
         <title>Home - Alex Andres Development Portfolio</title>
-        <meta property="description">
+        <meta
+          property="description"
+          content="
           The web devleopment portfolio of Alex Andres, a Los Angeles, CA based
           web developer. Alex specializes in developing websites and apps for
           small and medium size businesses with the latest proven technology and
-          best practices.
-        </meta>
+          best practices."
+        />
       </Head>
       <HeroSection />
       <MaxWidthWrapper>
