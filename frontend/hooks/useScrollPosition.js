@@ -6,8 +6,11 @@ export default function useScrollPositon() {
   useEffect(() => {
     function updateScrollPosition() {
       setScrollPosition(window.pageYOffset);
+      console.log(window.pageYOffest);
     }
-    window.addEventListener("scroll", updateScrollPosition, { passive: true });
+    window.addEventListener("scroll", updateScrollPosition, {
+      passive: true,
+    });
     return () =>
       window.removeEventListener("scroll", updateScrollPosition, {
         passive: true,

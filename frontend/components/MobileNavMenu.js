@@ -79,7 +79,7 @@ export default function MobileNavMenu() {
             </Link>
           </div>
           <div>
-            <a href="/resume.pdf" className="MobileNav__NavLink">
+            <a href="/Alex-Andres-Resume.pdf" className="MobileNav__NavLink">
               Resume
             </a>
           </div>
