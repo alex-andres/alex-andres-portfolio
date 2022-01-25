@@ -1,10 +1,7 @@
-import Link from "next/link";
 import styled from "styled-components";
-import Logo from "./Logo";
-import { RiMoonFill, RiSunLine } from "react-icons/ri";
+import { RiMoonFill } from "react-icons/ri";
 import MobileNavPortal from "./MobileNavbarPortal";
-import { useState } from "react";
-import MobileNavBar from "./MobileNavbar";
+import MobileNavBar from "./MobileNavBar";
 import LogoLink from "./LogoLink";
 import NavItem from "./NavItem";
 import useScrollPositon from "../hooks/useScrollPosition";
