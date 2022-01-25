@@ -54,8 +54,9 @@ export default function ProjectTechStackSection({
       href={image.url}
       title={`View ${image.techTitle}'s Website`}
       target="_blank"
-      rel="noreferer"
+      rel="noreferrer"
       className="image"
+      key={image.techTitle}
     >
       <div className="image-wrapper">
         <Image
@@ -66,7 +67,9 @@ export default function ProjectTechStackSection({
       </div>
     </a>
   ));
-  const bodyParagraphs = body.map((paragraph) => <p>{paragraph}</p>);
+  const bodyParagraphs = body.map((paragraph, index) => (
+    <p key={index}>{paragraph}</p>
+  ));
   return (
     <StyledSection>
       <div className="image-container">{images}</div>

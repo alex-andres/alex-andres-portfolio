@@ -112,12 +112,14 @@ export default function SAAAPage() {
           Sabrina Andres Art Advisory - Project Details - Alex Andres
           Development Portfolio
         </title>
-        <meta property="description">
+        <meta
+          property="description"
+          content="
           Sabrina Andres Art Advisory Business Website project overview
           including details about purpose of the project, techstack, lessons
           learned, and images. Website Development and Web Design in Los
-          Angeles, CA.
-        </meta>
+          Angeles, CA."
+        />
       </Head>
       <MaxWidthWrapper>
         <ProjectHeader data={project.header} />

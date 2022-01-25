@@ -117,6 +117,7 @@ export default function ProcessSection() {
       buttonText="View Details"
       path={card.path}
       className="process-card"
+      key={card.title}
     />
   ));
   return (

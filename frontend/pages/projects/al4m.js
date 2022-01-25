@@ -102,11 +102,13 @@ export default function AL4mPage() {
           Asher Luzatto for Mayor - Project Details - Alex Andres Development
           Portfolio
         </title>
-        <meta property="description">
+        <meta
+          property="description"
+          content="
           Asher Luzatto Mayoral Campaign Website project overview including
           details about purpose of the project, techstack, lessons learned, and
-          images. Website Development and Web Design in Los Angeles, CA.
-        </meta>
+          images. Website Development and Web Design in Los Angeles, CA."
+        />
       </Head>
       <MaxWidthWrapper>
         <ProjectHeader data={project.header} />

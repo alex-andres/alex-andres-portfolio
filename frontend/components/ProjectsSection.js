@@ -98,6 +98,7 @@ export default function ProjectsSection() {
       buttonText="View Project"
       path={card.path}
       className="project-card"
+      key={card.title}
     />
   ));
   return (
