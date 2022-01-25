@@ -104,7 +104,7 @@ const project = {
   keyTakeaways: {
     heading: "Key Takeaways",
     body: [
-      "This project was my first time working with this tech stack and it proved difficult at times but I learned a ton of useful things. It was the first project where I used React Hooks, Styled Components, GraphQL, Headless CMS and multiple web hooks for deployment. Getting more comfortable with all of the different Hooks available in React was my biggest lesson, and it is a great alternative to using class based components in certain use cases.",
+      "This project was my first time working with this tech stack and it proved difficult at times but I learned a ton of useful things. It was the first project where I used React Hooks, Styled Components, GraphQL, Headless CMS and multiple web hooks for deployment. Getting more comfortable with all of the different Hooks available in React was my biggest lesson, and it is a great alternative to using class based components for most use cases.",
     ],
   },
   mockupImage: {
