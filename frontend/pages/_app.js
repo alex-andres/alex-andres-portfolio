@@ -1,5 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
