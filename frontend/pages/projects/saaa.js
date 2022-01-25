@@ -117,7 +117,7 @@ export default function SAAAPage() {
           content="
           Sabrina Andres Art Advisory Business Website project overview
           including details about purpose of the project, techstack, lessons
-          learned, and images. Website Development and Web Design in Los
+          learned, and images. Website development and web design in Los
           Angeles, CA."
         />
       </Head>
