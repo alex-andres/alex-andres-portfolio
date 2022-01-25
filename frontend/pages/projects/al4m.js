@@ -103,7 +103,7 @@ export default function AL4mPage() {
           Portfolio
         </title>
         <meta
-          property="description"
+          name="description"
           content="
           Asher Luzatto Mayoral Campaign Website project overview including
           details about purpose of the project, techstack, lessons learned, and

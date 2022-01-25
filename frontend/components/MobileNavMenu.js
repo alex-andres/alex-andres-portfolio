@@ -57,21 +57,28 @@ export default function MobileNavMenu() {
   const { closeMenu } = useMenuContext();
   return (
     <StyledMobileNavMenu>
-      <button className="MobileNav__Backdrop" />
+      <button className="MobileNav__Backdrop" onClick={closeMenu} />
       <nav className="MobileNav__Nav">
         <div className="MobileNav__Top">
           <div>
-            <a
-              onClick={closeMenu}
-              href="#projects"
-              className="MobileNav__NavLink"
-            >
-              Projects
-            </a>
+            <Link href="/">
+              <a onClick={closeMenu} className="MobileNav__NavLink">
+                Home
+              </a>
+            </Link>
           </div>
           <div>
-            <Link onClick={closeMenu} href="/process">
-              <a className="MobileNav__NavLink">Process</a>
+            <Link href="/#projects">
+              <a onClick={closeMenu} className="MobileNav__NavLink">
+                Projects
+              </a>
+            </Link>
+          </div>
+          <div>
+            <Link href="/process">
+              <a onClick={closeMenu} className="MobileNav__NavLink">
+                Process
+              </a>
             </Link>
           </div>
           {/* <div>
@@ -80,8 +87,10 @@ export default function MobileNavMenu() {
             </Link>
           </div> */}
           <div>
-            <Link onClick={closeMenu} href="/about">
-              <a className="MobileNav__NavLink">About</a>
+            <Link href="/about">
+              <a onClick={closeMenu} className="MobileNav__NavLink">
+                About
+              </a>
             </Link>
           </div>
           <div>
@@ -89,6 +98,8 @@ export default function MobileNavMenu() {
               onClick={closeMenu}
               href="/Alex-Andres-Resume.pdf"
               className="MobileNav__NavLink"
+              target="_blank"
+              rel="noreferrer"
             >
               Resume
             </a>

@@ -36,7 +36,7 @@
 // }
 import Hamburger from "./Hamburger";
 import MobileNavMenu from "./MobileNavMenu";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 import styled from "styled-components";
 import { useMenuContext } from "../state/Menu";
 import Portal from "@reach/portal";
@@ -44,50 +44,53 @@ import Portal from "@reach/portal";
 export default function MobileNavBar() {
   const { isMenuOpen, toggleMenu } = useMenuContext();
   const ref = useRef(null);
-  const handleTabKey = (e) => {
-    if (ref && ref.current) {
-      const inputModalElements = ref.current.querySelectorAll(
-        'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
-      );
-      const primaryMenuButton = document.querySelector(".hamburger-react");
-      const firstElement = inputModalElements[0];
-      const lastElement = inputModalElements[inputModalElements.length - 1];
+  const handleTabKey = useCallback(
+    (e) => {
+      if (ref && ref.current) {
+        const inputModalElements = ref.current.querySelectorAll(
+          'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+        );
+        const primaryMenuButton = document.querySelector(".hamburger-react");
+        const firstElement = inputModalElements[0];
+        const lastElement = inputModalElements[inputModalElements.length - 1];
 
-      switch (document.activeElement) {
-        case lastElement: {
-          if (!e.shiftKey) {
-            primaryMenuButton.focus();
+        switch (document.activeElement) {
+          case lastElement: {
+            if (!e.shiftKey) {
+              primaryMenuButton.focus();
+              return e.preventDefault();
+            }
+            break;
+          }
+          case firstElement: {
+            if (e.shiftKey) {
+              primaryMenuButton.focus();
+              return e.preventDefault();
+            }
+            break;
+          }
+          case primaryMenuButton: {
+            if (e.shiftKey) {
+              lastElement.focus();
+            } else {
+              firstElement.focus();
+            }
             return e.preventDefault();
           }
-          break;
+          default:
+            break;
         }
-        case firstElement: {
-          if (e.shiftKey) {
-            primaryMenuButton.focus();
-            return e.preventDefault();
-          }
-          break;
-        }
-        case primaryMenuButton: {
-          if (e.shiftKey) {
-            lastElement.focus();
-          } else {
-            firstElement.focus();
-          }
-          return e.preventDefault();
-        }
-        default:
-          break;
       }
-    }
-  };
-
-  const keyListenersMap = new Map([
-    [27, toggleMenu],
-    [9, handleTabKey],
-  ]);
+    },
+    [ref]
+  );
 
   useEffect(() => {
+    const keyListenersMap = new Map([
+      [27, toggleMenu],
+      [9, handleTabKey],
+    ]);
+
     function keyListener(e) {
       const listener = keyListenersMap.get(e.keyCode);
       return listener && listener(e);
@@ -96,7 +99,7 @@ export default function MobileNavBar() {
     document.addEventListener("keydown", keyListener);
 
     return () => document.removeEventListener("keydown", keyListener);
-  }, [keyListenersMap]);
+  }, [toggleMenu, handleTabKey]);
 
   const StyledButton = styled.button`
     top: 12px;
@@ -109,11 +112,10 @@ export default function MobileNavBar() {
       display: none;
     }
   `;
-  console.log(isMenuOpen);
   return (
     <>
       <Portal>
-        <StyledButton onClick={() => toggleMenu()}>
+        <StyledButton onClick={toggleMenu}>
           <Hamburger />
         </StyledButton>
 

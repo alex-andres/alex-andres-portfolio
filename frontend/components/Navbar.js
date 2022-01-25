@@ -75,7 +75,6 @@ const Header = styled.div`
 
 export default function Navbar() {
   const scrollPosition = useScrollPositon();
-  console.log(scrollPosition);
   return (
     <MenuProvider>
       <Header scrollPosition={scrollPosition}>

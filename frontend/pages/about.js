@@ -51,7 +51,7 @@ export default function AboutPage() {
       <Head>
         <title>About Alex Andres - Alex Andres Development Portfolio</title>
         <meta
-          property="description"
+          name="description"
           content="Learn more about Alex&#39;s professional background and personal
           interests. Website Development and Web Design in Los Angeles, CA."
         />
