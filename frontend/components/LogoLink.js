@@ -7,7 +7,7 @@ const StyledLink = styled(Link)``;
 export default function LogoLink({ size }) {
   return (
     <StyledLink href="/">
-      <a>
+      <a aria-label="Branding logo Link to home page">
         <Logo size={size} />
       </a>
     </StyledLink>
