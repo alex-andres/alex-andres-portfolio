@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { RiMoonFill } from "react-icons/ri";
-import MobileNavPortal from "./MobileNavbarPortal";
+// import dynamic from "next/dynamic";
+// const MobileNavBar = dynamic(() => import("../MobileNavBar"));
 import MobileNavBar from "./MobileNavBar";
 import LogoLink from "./LogoLink";
 import NavItem from "./NavItem";

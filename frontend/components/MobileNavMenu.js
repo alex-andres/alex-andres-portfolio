@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import { RiMoonFill, RiSunLine } from "react-icons/ri";
 import { useMenuContext } from "../state/Menu";
+import { motion, AnimatePresence } from "framer-motion";
 
 const StyledMobileNavMenu = styled.div`
   position: fixed;
@@ -33,7 +34,7 @@ const StyledMobileNavMenu = styled.div`
     width: 100vw;
     height: 100vh;
     z-index: 1;
-    background: hsla(0deg, 0%, 100%, 0.9);
+    background: hsla(0deg, 0%, 100%, 0.75);
     backdrop-filter: blur(8px);
   }
   .MobileNav__NavLink {
@@ -52,69 +53,189 @@ const StyledMobileNavMenu = styled.div`
       width: auto !important;
     }
   }
+  .MobileNav__Bottom {
+    padding-top: 10vh;
+  }
 `;
+
+const MotionMobileNavMenu = motion(StyledMobileNavMenu);
+const MotionMobileNav = motion.div;
+const list = {
+  visible: {
+    transition: {
+      ease: "easeIn",
+      duration: 0.25,
+    },
+  },
+  hidden: {
+    transition: {
+      ease: "easein",
+      duration: 0.25,
+    },
+  },
+  exit: {
+    transition: {
+      ease: "easein",
+      duration: 0.25,
+    },
+  },
+};
 export default function MobileNavMenu() {
   const { closeMenu } = useMenuContext();
   return (
-    <StyledMobileNavMenu>
-      <button className="MobileNav__Backdrop" onClick={closeMenu} />
-      <nav className="MobileNav__Nav">
-        <div className="MobileNav__Top">
-          <div>
-            <Link href="/">
-              <a onClick={closeMenu} className="MobileNav__NavLink">
-                Home
-              </a>
-            </Link>
-          </div>
-          <div>
-            <Link href="/#projects">
-              <a onClick={closeMenu} className="MobileNav__NavLink">
-                Projects
-              </a>
-            </Link>
-          </div>
-          <div>
-            <Link href="/process">
-              <a onClick={closeMenu} className="MobileNav__NavLink">
-                Process
-              </a>
-            </Link>
-          </div>
-          {/* <div>
+    <MotionMobileNavMenu
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <AnimatePresence>
+        <motion.button
+          initial={{
+            opacity: 0,
+            transition: { ease: "easeIn", duration: 0.4 },
+          }}
+          animate={{
+            opacity: 1,
+            transition: { ease: "easeOut", duration: 0.1 },
+          }}
+          exit={{ opacity: 1, transition: { ease: "easeOut", duration: 0.1 } }}
+          className="MobileNav__Backdrop"
+          onClick={closeMenu}
+          key="button-background"
+        />
+        <nav className="MobileNav__Nav">
+          <MotionMobileNav
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={list}
+            className="MobileNav__Top"
+          >
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: -125,
+                transition: { ease: "easeIn", duration: 0.4 },
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { ease: "easeOut", duration: 0.1 },
+              }}
+              exit={{ x: -125, opacity: 0 }}
+              key="home"
+            >
+              <Link href="/">
+                <a onClick={closeMenu} className="MobileNav__NavLink">
+                  Home
+                </a>
+              </Link>
+            </motion.div>
+            <motion.div
+              variants={{
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { ease: "easeOut", duration: 0.42 },
+                },
+                hidden: { x: -125, opacity: 0 },
+              }}
+              exit={{ x: -125, opacity: 0 }}
+              key="projects"
+            >
+              <Link href="/#projects">
+                <a onClick={closeMenu} className="MobileNav__NavLink">
+                  Projects
+                </a>
+              </Link>
+            </motion.div>
+            <motion.div
+              variants={{
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { ease: "easeOut", duration: 0.46 },
+                },
+                hidden: { x: -125, opacity: 0 },
+              }}
+              exit={{ x: -125, opacity: 0 }}
+              key="process"
+            >
+              <Link href="/process">
+                <a onClick={closeMenu} className="MobileNav__NavLink">
+                  Process
+                </a>
+              </Link>
+            </motion.div>
+            {/* <div>
             <Link href="/blog">
               <a className="MobileNav__NavLink">Blog</a>
             </Link>
           </div> */}
-          <div>
-            <Link href="/about">
-              <a onClick={closeMenu} className="MobileNav__NavLink">
-                About
-              </a>
-            </Link>
-          </div>
-          <div>
-            <a
-              onClick={closeMenu}
-              href="/Alex-Andres-Resume.pdf"
-              className="MobileNav__NavLink"
-              target="_blank"
-              rel="noreferrer"
+            <motion.div
+              variants={{
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { ease: "easeOut", duration: 0.52 },
+                },
+                hidden: { x: -125, opacity: 0 },
+              }}
+              exit={{ x: -125, opacity: 0 }}
+              key="about"
             >
-              Resume
-            </a>
-          </div>
-        </div>
-        <div className="MobileNav__Bottom">
-          <button
-            aria-label="Activate Dark Mode"
-            title="Activate Dark Mode"
-            className="DarkModeToggle__IconWrapper"
-          >
-            <RiMoonFill />
-          </button>
-        </div>
-      </nav>
-    </StyledMobileNavMenu>
+              <Link href="/about">
+                <a onClick={closeMenu} className="MobileNav__NavLink">
+                  About
+                </a>
+              </Link>
+            </motion.div>
+            <motion.div
+              variants={{
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { ease: "easeOut", duration: 0.6 },
+                },
+                hidden: { x: -125, opacity: 0 },
+              }}
+              exit={{ x: -125, opacity: 0 }}
+              key="resume"
+            >
+              <a
+                onClick={closeMenu}
+                href="/Alex-Andres-Resume.pdf"
+                className="MobileNav__NavLink"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Resume
+              </a>
+            </motion.div>
+            <motion.div
+              className="MobileNav__Bottom"
+              variants={{
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { ease: "easeOut", duration: 0.7 },
+                },
+                hidden: { x: -125, opacity: 0 },
+              }}
+              exit={{ x: -125, opacity: 0 }}
+              key="dark-mode"
+            >
+              <button
+                aria-label="Activate Dark Mode"
+                title="Activate Dark Mode"
+                className="DarkModeToggle__IconWrapper"
+              >
+                <RiMoonFill />
+              </button>
+            </motion.div>
+          </MotionMobileNav>
+        </nav>
+      </AnimatePresence>
+    </MotionMobileNavMenu>
   );
 }

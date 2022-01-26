@@ -81,7 +81,8 @@ export default function HeroSection() {
         <Button
           className="hero-button"
           path={"/about"}
-          buttonText={"More About Me"}
+          buttonText={"Learn More About Me"}
+          title="Link to About Me Page"
         />
       </div>
       <HeroImage />

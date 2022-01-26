@@ -1,45 +1,10 @@
-// import { useState } from "react";
-// import styled from "styled-components";
-// import Hamburger from "./Hamburger";
-// import MobileNavMenu from "./MobileNavMenu";
-// import { AnimatePresence } from "framer-motion";
-
-// const StyledButton = styled.button`
-//   top: 12px;
-//   position: fixed;
-//   z-index: 10001;
-//   right: 16px;
-//   width: 32px;
-//   height: 32px;
-//   @media screen and (min-width: 769px) {
-//     display: none;
-//   }
-// `;
-
-// export default function MobileNavBar() {
-//   const [showMobileNav, setShowMobileNav] = useState(false);
-//   return (
-//     <>
-//       <StyledButton
-//         onClick={() => {
-//           setShowMobileNav(!showMobileNav);
-//         }}
-//       >
-//         <Hamburger />
-//       </StyledButton>
-
-//       <AnimatePresence>
-//         {showMobileNav ? <MobileNavMenu /> : null}
-//       </AnimatePresence>
-//     </>
-//   );
-// }
 import Hamburger from "./Hamburger";
 import MobileNavMenu from "./MobileNavMenu";
 import React, { useEffect, useCallback, useRef } from "react";
 import styled from "styled-components";
 import { useMenuContext } from "../state/Menu";
 import Portal from "@reach/portal";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function MobileNavBar() {
   const { isMenuOpen, toggleMenu } = useMenuContext();
@@ -112,17 +77,14 @@ export default function MobileNavBar() {
       display: none;
     }
   `;
+
   return (
     <>
       <Portal>
-        <StyledButton
-          aria-label="Mobile Navigation Button"
-          onClick={toggleMenu}
-        >
-          <Hamburger />
-        </StyledButton>
-
-        {isMenuOpen && <MobileNavMenu ref={ref} />}
+        <Hamburger toggle={toggleMenu} />
+        <AnimatePresence>
+          {isMenuOpen && <MobileNavMenu ref={ref} />}
+        </AnimatePresence>
       </Portal>
     </>
   );
