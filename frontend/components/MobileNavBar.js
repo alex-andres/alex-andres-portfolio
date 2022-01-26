@@ -115,7 +115,10 @@ export default function MobileNavBar() {
   return (
     <>
       <Portal>
-        <StyledButton onClick={toggleMenu}>
+        <StyledButton
+          aria-label="Mobile Navigation Button"
+          onClick={toggleMenu}
+        >
           <Hamburger />
         </StyledButton>
 
