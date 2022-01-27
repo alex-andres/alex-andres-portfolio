@@ -19,7 +19,6 @@ import mockup from "../../public/images/projectCards/saaa.jpg";
 import ProjectMockupSection from "../../components/ProjectMockupSection";
 import LetsWorkTogetherSection from "../../components/LetsWorkTogetherSection";
 import Head from "next/head";
-import "@fontsource/roboto/700.css";
 const StyledSAAAPage = styled.div``;
 
 const project = {

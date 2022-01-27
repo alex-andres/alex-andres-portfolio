@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import ProjectTextSection from "./ProjectTextSection";
+import "@fontsource/roboto/700.css";
 
 const StyledSection = styled.section`
   display: flex;
