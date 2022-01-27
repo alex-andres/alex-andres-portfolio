@@ -74,7 +74,7 @@ const StyledSection = styled.section`
       }
     }
   }
-  .heading-5 {
+  .heading-4 {
     background-color: hsla(0, 0%, 100%, 10%);
   }
   .number-container {
@@ -87,7 +87,7 @@ const StyledSection = styled.section`
     font-size: 20rem;
     color: hsla(0, 0%, 0%, 40%);
   }
-  .number-5 {
+  .number-4 {
     color: hsl(0, 0%, 0%);
   }
   .text-container {

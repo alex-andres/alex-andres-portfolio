@@ -10,7 +10,7 @@ const IconContainer = styled.svg`
 `;
 
 const Animated = styled.path`
-  color: hsl(221, 59%, 20%);
+  color: var(--seaFoam);
   position: absolute;
   top: 0;
   left: 0;

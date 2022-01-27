@@ -27,10 +27,10 @@ const Animated = styled.span`
 export default function StyledLink({
   title,
   href,
-  scroll,
   anchor,
   linkTitle,
-  color,
+  external
+
 }) {
   if (anchor) {
     return (
@@ -42,7 +42,20 @@ export default function StyledLink({
         <Animated aria-hidden={true}>{title}</Animated>
       </Anchor>
     );
+  } else if(external) {
+    return (
+      <Anchor
+        href={`${href ? href : title}`}
+        title={linkTitle ? linkTitle : `${title}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {title}
+        <Animated aria-hidden={true}>{title}</Animated>
+      </Anchor>
+    );
   } else {
+
     return (
       <Link href={`/${href ? href : title}`} passHref>
         <Anchor title={linkTitle ? linkTitle : `${title}`}>

@@ -43,7 +43,7 @@ const project = {
   purposeAndGoals: {
     heading: "Project Purpose and Goals",
     body: [
-      "The purpose of my portfolio showcase my work as a developer and provide me a space to create blog posts about the problems I have been working on. My goal while developing this site was continue my use of modern web frameworks and libraries and to challenge myself to incorporate new technologies that I have yet to work with.",
+      "The purpose of my portfolio is to showcase my work as a developer and provide me a space to create blog posts about the problems I have been working on. My goal while developing this site was continue my use of modern web frameworks and libraries and to challenge myself to incorporate new technologies that I have yet to work with.",
     ],
   },
   techStack: {
@@ -90,9 +90,7 @@ const project = {
   },
   challengesAndResolutions: {
     heading: "Challenges and Resolutions",
-    body: [
-      "Two chanllenges I had with this project was deploying the NextJS server to Firebase and getting the next-optimized-images library to work in deployment. Their is limited information on how to deploy a NextJS Server on a third party server because Vercel the creators of next encourage you to use their own server. After a lot of reconfiguring and 30 different variations of deploys I got the Next server to finally work, with the end resolution being that the server function folder required all of the npm packages that the actual project included. After getting the project deployed none of the image optimization that worked in the development environment was working. This is due to the fact that the next Img component only works with deploying the server to Vercel. I came across next-optimize-image as an alternative, and now all of the images are optimized for different screen sizes during build time. ",
-    ],
+    body: [],
   },
   screenshotGallery: {
     imageData: [

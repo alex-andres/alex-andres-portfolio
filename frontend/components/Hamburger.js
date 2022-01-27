@@ -29,7 +29,7 @@ const bottomLine = (
 );
 export default function Hamburger({ toggle }) {
   return (
-    <StyledButton aria-label="Mobile Navigation Button">
+    <StyledButton aria-label="Mobile Navigation Button" onClick={toggle}>
       <HamburgerContainer xmlns="http://www.w3.org/2000/svg">
         {topLine}
         {middleLine}

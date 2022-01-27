@@ -9,7 +9,7 @@ const StyledSection = styled.section`
     padding-bottom: 32px;
   }
   p {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.5;
     max-width: 768px;
     padding-bottom: 32px;

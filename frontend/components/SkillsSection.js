@@ -81,6 +81,8 @@ export default function SkillsSection() {
             <li>SASS</li>
             <li>Styled Components</li>
             <li>React</li>
+            <li>Next JS</li>
+            <li>Gatsby</li>
             <li>Framer Motion</li>
             <li>PHP</li>
             <li>TypeScript</li>

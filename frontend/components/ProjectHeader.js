@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
+import StyledLink from "./UI-Components/StyledLink";
 
 const StyledSection = styled.section`
   margin-top: -32px;
@@ -22,6 +23,9 @@ const StyledSection = styled.section`
       order: 1;
       padding-bottom: 48px;
     }
+  }
+  a{
+    font-size: 1rem;
   }
   .header-image-wrapper {
     padding-bottom: 32px;
@@ -61,7 +65,7 @@ const StyledSection = styled.section`
     }
     &__project-type {
       @media only screen and (min-width: 768px) {
-        max-width: 170px;
+        max-width: 150px;
       }
     }
   }
@@ -77,6 +81,7 @@ export default function ProjectHeader({
     designURL,
     repositoryURL,
     siteURL,
+    siteURLText,
   },
 }) {
   const techStackList = techStack.map((item) => <li key={item}>{item}</li>);
@@ -101,14 +106,13 @@ export default function ProjectHeader({
             <div className="project-details__design">
               <strong>Design</strong>
               <p>
-                <a
+                <StyledLink
+                  title={"XD Design"}
                   href={designURL}
-                  title="View Adobe XD Design in new window"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  XD Design
-                </a>
+                  linkTitle={"View Adobe XD Design in new window"}
+                  anchor={true}
+                  external={true}
+                />
               </p>
             </div>
           )}
@@ -116,28 +120,26 @@ export default function ProjectHeader({
             <div className="project-details__source-code">
               <strong>Source Code</strong>{" "}
               <p>
-                <a
+                <StyledLink
+                  title={"Github Repository"}
                   href={repositoryURL}
-                  title="View Github Repository in new window"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Github Repository
-                </a>
+                  linkTitle={"View Repository in new window"}
+                  anchor={true}
+                  external={true}
+                />
               </p>
             </div>
           )}
           <div className="project-details__live">
             <strong>Live</strong>
             <p>
-              <a
-                href={siteURL}
-                title={`View ${title} live site in new window`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {siteURL}
-              </a>
+              <StyledLink
+                  title={siteURLText ? siteURLText : siteURL}
+                  href={siteURL}
+                  linkTitle={`View ${title} live site in new window`}
+                  anchor={true}
+                  external={true}
+                />
             </p>
           </div>
         </div>
