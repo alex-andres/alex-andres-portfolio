@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { RiMoonFill } from "react-icons/ri";
 // import dynamic from "next/dynamic";
 // const MobileNavBar = dynamic(() => import("../MobileNavBar"));
 import MobileNavBar from "./MobileNavBar";
@@ -7,6 +6,8 @@ import LogoLink from "./LogoLink";
 import NavItem from "./NavItem";
 import useScrollPositon from "../hooks/useScrollPosition";
 import { MenuProvider } from "../state/Menu";
+import StyledLink from "./UI-Components/StyledLink";
+import MoonIcon from "./icons/MoonIcon";
 
 const Header = styled.div`
   position: sticky;
@@ -97,12 +98,13 @@ export default function Navbar() {
                 </li>
                 <li className="Navigation__ListItem">
                   <div className="NavItem__Wrapper">
-                    <a
-                      className="NavItem__NavItemLink"
-                      href="/Alex-Andres-Resume.pdf"
-                    >
-                      Resume
-                    </a>
+                    <div className="NavItem__NavItemLink">
+                      <StyledLink
+                        href="/Alex-Andres-Resume.pdf"
+                        anchor={true}
+                        title="Resume"
+                      />
+                    </div>
                   </div>
                 </li>
               </ul>
@@ -114,7 +116,7 @@ export default function Navbar() {
               title="Activate Dark Mode"
               className="DarkModeToggle__IconWrapper"
             >
-              <RiMoonFill />
+              <MoonIcon />
             </button>
           </div>
           <div className="Header__RightMobile">

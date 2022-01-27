@@ -5,6 +5,9 @@ import HeroImage from "./HeroImage";
 const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
+  margin-top: -48px;
+  margin-left: -32px;
+  margin-right: -32px;
   padding-left: 32px;
   padding-right: 32px;
   padding-bottom: 92px;
@@ -58,6 +61,7 @@ const StyledSection = styled.section`
       p {
         max-width: 428px;
         padding-bottom: 48px;
+        line-height: 1.75;
       }
     }
     .mobile-text {
@@ -74,9 +78,9 @@ export default function HeroSection() {
         <h2>Web Developer & Designer</h2>
         <p>
           Hi, I’m Alex, a full stack web developer and ux designer with a
-          passion for building intuitive and performant websites. By using the
-          latest tech stacks, I can provide my clients and their users with the
-          experience they desire.
+          passion for building intuitive and performant websites and apps. By
+          using the latest tech stacks, I can provide my clients and their users
+          with the experience they desire.
         </p>
         <Button
           className="hero-button"
@@ -89,9 +93,9 @@ export default function HeroSection() {
       <div className="mobile-text">
         <p>
           Hi, I’m Alex, a full stack web developer and ux designer with a
-          passion for building intuitive and performant websites. By using the
-          latest tech stacks, I can provide my clients and their users with the
-          experience they desire.
+          passion for building intuitive and performant websites apps. By using
+          the latest tech stacks, I can provide my clients and their users with
+          the experience they desire.
         </p>
         <Button
           className="hero-button"

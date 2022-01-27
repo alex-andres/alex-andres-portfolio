@@ -35,7 +35,8 @@ const project = {
       "Keystone JS",
       "MongoDB",
     ],
-    designURL: "aandres.dev",
+    designURL:
+      "https://xd.adobe.com/view/7461c17b-b75f-4b8e-9285-3a22e60a404a-2132/grid",
     repositoryURL: "https://github.com/alex-andres/alex-andres-portfolio",
     siteURL: "https://aandres.dev",
   },

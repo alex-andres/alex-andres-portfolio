@@ -21,7 +21,8 @@ const StyledSection = styled.section`
     }
   }
   p {
-    font-size: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.75;
     padding-bottom: 32px;
     max-width: 768px;
     @media only screen and (min-width: 768px) {
@@ -37,7 +38,10 @@ const StyledSection = styled.section`
     }
   }
   h3 {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
+    @media only screen and (min-width: 768px) {
+      font-size: 1.6rem;
+    }
   }
   ul {
     list-style: none;
@@ -47,7 +51,9 @@ const StyledSection = styled.section`
     }
   }
   li {
-    font-size: 1.375rem;
+    @media only screen and (min-width: 768px) {
+      font-size: 1.125rem;
+    }
     line-height: 2;
   }
   li:last-of-type {

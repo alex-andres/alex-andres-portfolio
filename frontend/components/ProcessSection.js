@@ -70,12 +70,12 @@ const StyledSection = styled.section`
       }
       .text-container {
         padding: 24px;
-        min-height: 299px;
+        min-height: 250px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         p {
-          font-size: 1.2rem;
+          font-size: 1rem;
           color: var(--darkgrey);
           padding-bottom: 24px;
         }

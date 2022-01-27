@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { RiMoonFill, RiSunLine } from "react-icons/ri";
 import { useMenuContext } from "../state/Menu";
 import { motion, AnimatePresence } from "framer-motion";
+import MoonIcon from "./icons/MoonIcon";
 
 const StyledMobileNavMenu = styled.div`
   position: fixed;
@@ -230,7 +230,7 @@ export default function MobileNavMenu() {
                 title="Activate Dark Mode"
                 className="DarkModeToggle__IconWrapper"
               >
-                <RiMoonFill />
+                <MoonIcon />
               </button>
             </motion.div>
           </MotionMobileNav>

@@ -7,6 +7,11 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import LogoLink from "./LogoLink";
+import DribbleIcon from "./icons/DribbleIcon";
+import LinkedInIcon from "./icons/LinkedInIcon";
+import TwitterIcon from "./icons/TwitterIcon";
+import InstagramIcon from "./icons/InstagramIcon";
+import GithubIcon from "./icons/GithubIcon";
 
 const StyledFooter = styled.footer`
   background-color: var(--transparentSeaFoam);
@@ -70,14 +75,46 @@ export default function Footer() {
           <LogoLink size="58px" />
         </div>
         <div className="Footer__SocialIconWrapper">
-          <FaDribbble
-            className="SocialIcon"
-            shape-rendering="geometricPrecision"
-          />
-          <FaLinkedin className="SocialIcon" />
-          <FaTwitter className="SocialIcon" />
-          <FaInstagram className="SocialIcon" />
-          <FaGithub className="SocialIcon" />
+          <a
+            href="https://dribbble.com/aandres-dev"
+            target="_blank"
+            rel="noreferrer"
+            title="Visit My Dribble Profile"
+          >
+            <DribbleIcon className="SocialIcon" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/alandres/"
+            target="_blank"
+            rel="noreferrer"
+            title="Visit My LinkedIn Profile"
+          >
+            <LinkedInIcon className="SocialIcon" />
+          </a>
+          <a
+            href="https://twitter.com/al_codes"
+            target="_blank"
+            rel="noreferrer"
+            title="Visit My Twitter Profile"
+          >
+            <TwitterIcon className="SocialIcon" />
+          </a>
+          <a
+            href="https://www.instagram.com/alex_andres_dev/"
+            target="_blank"
+            rel="noreferrer"
+            title="Visit My Instagram Profile"
+          >
+            <InstagramIcon className="SocialIcon" />
+          </a>
+          <a
+            href="https://github.com/alex-andres"
+            target="_blank"
+            rel="noreferrer"
+            title="Visit My Github Profile"
+          >
+            <GithubIcon className="SocialIcon" />
+          </a>
         </div>
         <div className="Footer__Copyright">
           Alex Andres © 2021 <br /> All Rights Reserved

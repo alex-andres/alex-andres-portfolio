@@ -15,9 +15,12 @@ const HeroImageContainer = styled.div`
     padding-bottom: 0;
     .image-wrapper {
       aspect-ratio: auto;
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 330px 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50vh 100%);
       height: calc(100vh - 92px);
       max-height: 720px;
+      @media only screen and (min-height: 752px) {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 335px 100%);
+      }
     }
     img {
       height: 100%;

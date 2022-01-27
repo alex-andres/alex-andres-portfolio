@@ -20,8 +20,8 @@ export default function IndexPage() {
           best practices."
         />
       </Head>
-      <HeroSection />
       <MaxWidthWrapper>
+        <HeroSection />
         <ProjectsSection />
         <ProcessSection />
         <SkillsSection />

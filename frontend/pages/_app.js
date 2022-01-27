@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
   }
+
   :root{
     --black: hsl(0, 0%, 3%);
     --darkgrey: hsl(0, 0%, 20%);
@@ -163,6 +164,9 @@ p, h1, h2, h3, h4, h5, h6 {
   }
   a{
     text-decoration: none;
+    &:visted{
+      color: inherit;
+    }
   }
 `;
 const theme = {
@@ -174,11 +178,9 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

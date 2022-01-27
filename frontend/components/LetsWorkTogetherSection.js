@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import StyledLink from "./UI-Components/StyledLink";
 
 const StyledSection = styled.section`
   padding-bottom: 128px;
@@ -14,21 +15,26 @@ const StyledSection = styled.section`
     padding-bottom: 32px;
   }
   a {
+    text-decoration: underline;
+    font-size: 1.4rem;
     color: var(--aqua);
-    border-bottom: var(--aqua) solid 2.75px;
-    font-size: 1.875rem;
   }
 `;
 
 export default function LetsWorkTogetherSection() {
   return (
     <StyledSection>
-      <h2>Lets Work Together</h2>
+      <h2>Let&apos;s Work Together</h2>
       <p>
         Whether you have a question, would like to work together, or just want
         to connect, feel free to reach out.
       </p>
-      <a href="mailto:alex@aandres.dev">alex@aandres.dev</a>
+      <StyledLink
+        title="alex@aandres.dev"
+        href="mailto:alex@aandres.dev"
+        linkTitle={"Send me an email"}
+        anchor={true}
+      />
     </StyledSection>
   );
 }

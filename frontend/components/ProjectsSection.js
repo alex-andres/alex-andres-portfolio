@@ -41,12 +41,18 @@ const StyledSection = styled.section`
       }
       h3 {
         font-size: 1.5rem;
-        padding-bottom: 24px;
+        padding-bottom: 16px;
+        @media only screen and (min-width: 748px) {
+          paddin-bottom: 24px;
+        }
       }
       p {
-        font-size: 1.25rem;
+        font-size: 1rem;
         color: var(--darkgrey);
-        padding-bottom: 24px;
+        padding-bottom: 18px;
+        @media only screen and (min-width: 748px) {
+          padding-bottom: 26px;
+        }
       }
       @media only screen and (min-width: 748px) {
         max-width: 518px;

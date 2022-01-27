@@ -66,18 +66,6 @@ export default function MobileNavBar() {
     return () => document.removeEventListener("keydown", keyListener);
   }, [toggleMenu, handleTabKey]);
 
-  const StyledButton = styled.button`
-    top: 12px;
-    position: fixed;
-    z-index: 10001;
-    right: 16px;
-    width: 32px;
-    height: 32px;
-    @media screen and (min-width: 769px) {
-      display: none;
-    }
-  `;
-
   return (
     <>
       <Portal>
