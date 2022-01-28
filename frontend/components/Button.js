@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -39,16 +40,24 @@ const Animated = styled.span`
   }
 `;
 
-export default function Button({ buttonText, className, path }) {
+export default function Button({
+  buttonText,
+  className,
+  path,
+  variants,
+  custom,
+}) {
   return (
-    <Link href={path}>
-      <a>
-        <StyledButtonContainer className={className}>
-          <StyledButton>
-            {buttonText} <Animated aria-hidden={true}>{buttonText}</Animated>
-          </StyledButton>
-        </StyledButtonContainer>
-      </a>
-    </Link>
+    <motion.div variants={variants} custom={custom}>
+      <Link href={path}>
+        <a>
+          <StyledButtonContainer className={className}>
+            <StyledButton>
+              {buttonText} <Animated aria-hidden={true}>{buttonText}</Animated>
+            </StyledButton>
+          </StyledButtonContainer>
+        </a>
+      </Link>
+    </motion.div>
   );
 }

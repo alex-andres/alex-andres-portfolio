@@ -17,6 +17,7 @@ const Header = styled.div`
     props.scrollPosition > 32 ? "var(--white)" : "none"};
   box-shadow: ${(props) =>
     props.scrollPosition > 32 ? "var(--shadow-elevation-medium)" : "none"};
+  transition: box-shadow ease-in 0.15s;
   .Header__Wrapper {
     margin: 0 auto;
     max-width: var(--maxWidth);

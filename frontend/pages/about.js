@@ -17,7 +17,7 @@ const aboutCardData = [
     title: "Hiking in Costa Rica",
     src: costaRica,
     body: [
-      "I’m a web developer from Pasadena, CA. Being raised by parents who both were teachers (math and art), I have always had the passion for learning, visual creativity and logical problem solving, which are well satisfied by my career in web development.",
+      "I’m a web developer from Pasadena, CA. Being raised by parents who both were teachers (math and art), I have always had the passion for learning, visual creativity and logical problem solving, all of which are satisfied by my career in web development.",
       "I strive to create memorable user experiences on the web through intuitive designs and writing clean html, css, and javascript. My current tech interest include React, Styled Components, Node, Express, Next JS, and Gatsby.",
       "When I’m not working, I am playing sunrise tennis, exploring the world with my lovely wife, and cooking meals for and enjoying the company of my family and friends.",
     ],

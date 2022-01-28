@@ -73,12 +73,12 @@ const list = {
       duration: 0.25,
     },
   },
-  exit: {
-    transition: {
-      ease: "easein",
-      duration: 0.25,
-    },
-  },
+  // exit: {
+  //   transition: {
+  //     ease: "easein",
+  //     duration: 0.25,
+  //   },
+  // },
 };
 export default function MobileNavMenu() {
   const { closeMenu } = useMenuContext();
@@ -107,7 +107,6 @@ export default function MobileNavMenu() {
           <MotionMobileNav
             initial="hidden"
             animate="visible"
-            exit="exit"
             variants={list}
             className="MobileNav__Top"
           >
