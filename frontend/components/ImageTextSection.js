@@ -7,6 +7,7 @@ const StyledSection = styled.section`
     padding-bottom: 64px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     max-width: 450px;
     &:last-of-type {
@@ -21,9 +22,17 @@ const StyledSection = styled.section`
       pointer-events: none;
     }
     @media only screen and (min-width: 768px) {
-      &:nth-of-type(2n) {
+      &:nth-of-type(even) {
         .image-container {
           order: 2;
+        }
+        .text-container {
+          margin-left: -64px;
+        }
+      }
+      &:nth-of-type(odd) {
+        .image-container {
+          margin-left: -64px;
         }
       }
     }
