@@ -12,6 +12,14 @@ const StyledSection = styled.section`
     &:last-of-type {
       padding-bottom: 0;
     }
+    ::before {
+      display: block;
+      content: "";
+      margin-top: -100px;
+      height: 100px;
+      visibility: hidden;
+      pointer-events: none;
+    }
     @media only screen and (min-width: 768px) {
       &:nth-of-type(2n) {
         .image-container {
@@ -110,9 +118,10 @@ export default function ImageTextSection({ data, about }) {
     const bodyParagraphs = card.body.map((text, index) => {
       return <p key={index}>{text}</p>;
     });
+    const id = card.title.toLowerCase();
     if (!about) {
       return (
-        <article key={card.title} className="process-row">
+        <article key={card.title} className="process-row" id={id}>
           <div className="image-container">
             <div className="image-wrapper">
               <Image
@@ -133,7 +142,7 @@ export default function ImageTextSection({ data, about }) {
       );
     } else {
       return (
-        <article key={card.title} className="process-row">
+        <article key={card.title} className="process-row" id={id}>
           <div className="image-container">
             <div className="image-wrapper">
               <Image

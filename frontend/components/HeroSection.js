@@ -78,9 +78,9 @@ export default function HeroSection() {
         <h2>Web Developer & Designer</h2>
         <p>
           Hi, I’m Alex, a full stack web developer and ux designer with a
-          passion for building intuitive and performant websites and apps. By
-          using the latest tech stacks, I can provide my clients and their users
-          with the experience they desire.
+          passion for building intuitive and performant websites and web apps.
+          By using the latest tech stacks, I can provide my clients and their
+          users with the experience they desire.
         </p>
         <Button
           className="hero-button"
@@ -93,9 +93,9 @@ export default function HeroSection() {
       <div className="mobile-text">
         <p>
           Hi, I’m Alex, a full stack web developer and ux designer with a
-          passion for building intuitive and performant websites apps. By using
-          the latest tech stacks, I can provide my clients and their users with
-          the experience they desire.
+          passion for building intuitive and performant websites and web apps.
+          By using the latest tech stacks, I can provide my clients and their
+          users with the experience they desire.
         </p>
         <Button
           className="hero-button"

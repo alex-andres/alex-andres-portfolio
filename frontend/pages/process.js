@@ -22,7 +22,7 @@ const headerData = {
 
 const processCardData = [
   {
-    title: "Consultatation",
+    title: "Consultation",
     src: consultation,
     body: [
       "Every project starts with a consultation. A brief meeting to talk about general site features, intended audience, marketplace competition,  project stakeholders, and project timeline.",

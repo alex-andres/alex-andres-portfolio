@@ -89,21 +89,21 @@ const cardData = [
     imageSrc: cd,
     description:
       "Meet with Client outlining scope, features, design, and provide advice for desired business outcomes. Create responsive, interactive prototype using Adobe XD and Stock Assets.",
-    path: "/process#consult",
+    path: "/process#consultation",
   },
   {
-    title: "Develop & Iterate",
+    title: "Develop & Test",
     imageSrc: di,
     description:
-      "Build Website or Native app using the latest proven tech stack for the constraints of the project, deliver a demo, and iterate based on client input and feedback.",
+      "Build Website or Native app deliver a demo. Test website functionality on multiple devices and platforms, audit site for performance, SEO, accessibility and web best practices.",
     path: "/process#develop",
   },
   {
-    title: "Test & Deploy",
+    title: "Iterate & Deploy",
     imageSrc: td,
     description:
-      "Test website functionality on multiple devices and platforms, audit site for performance, SEO, accessibility and web best practices. Deploy site and provide client with resources.",
-    path: "/process#test",
+      "Iterate project features and styles based on client input and feedback. Audit site with one final run through tests, deploy site and provide client with resources.",
+    path: "/process#iterate",
   },
 ];
 
