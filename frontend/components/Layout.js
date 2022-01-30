@@ -2,6 +2,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Spacer from "./UI-Components/Spacer";
 import Head from "next/head";
+import LoadingAnimation from "./LoadingAnimation";
 
 export default function Layout({ children }) {
   return (
@@ -29,6 +30,7 @@ export default function Layout({ children }) {
         <meta name="msapplication-TileColor" content="#FFFFF" />
         <meta name="theme-color" content="#80CB97" />
       </Head>
+      {/* <LoadingAnimation /> */}
       <Spacer />
       <Navbar />
       <main>{children}</main>

@@ -43,7 +43,6 @@ const HeroImageContainer = styled.div`
 
 export default function HeroImage() {
   const isLarge = useIsLarge();
-  console.log({ isLarge });
 
   const image = isLarge
     ? {
