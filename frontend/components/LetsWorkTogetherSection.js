@@ -8,6 +8,13 @@ const StyledSection = styled.section`
     line-height: 1.25;
     text-align: center;
     padding-bottom: 32px;
+    font-size: 2rem;
+    @media only screen and (min-width: 768px){
+      font-size: 2.5rem;
+    }
+    @media only screen and (min-width: 1201px){
+      font-size: 4rem;
+    }
   }
   p {
     font-size: 1rem;
@@ -23,7 +30,7 @@ const StyledSection = styled.section`
   .animated-letter{
     display: inline-block;
     &.space{
-      width: 16px;
+      width: 8px;
     }
   }
 
@@ -32,7 +39,6 @@ const StyledSection = styled.section`
 const heading = {
   animate: {
     transition: {
-      delayChildren: 0.4,
       staggerChildren: 0.05,
     },
   },

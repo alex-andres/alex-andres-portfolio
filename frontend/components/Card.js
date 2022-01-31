@@ -33,7 +33,7 @@ export default function Card({
     <motion.article
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.75 }}
+      viewport={{ once: true, amount: 0.5 }}
       transition={{ staggerChildren: 0.15 }}
       className={className}
     >
