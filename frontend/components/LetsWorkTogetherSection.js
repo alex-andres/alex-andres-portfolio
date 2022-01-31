@@ -20,60 +20,110 @@ const StyledSection = styled.section`
     font-size: 1.4rem;
     color: var(--aqua);
   }
+  .animated-letter{
+    display: inline-block;
+    &.space{
+      width: 16px;
+    }
+  }
+
 `;
 
 const heading = {
   animate: {
     transition: {
       delayChildren: 0.4,
-      staggerChildren: 0.1,
+      staggerChildren: 0.05,
     },
   },
 };
 
 const letterAnimation = {
   initial: {
-    y: 400,
+    y: 20, 
+    opacity: 0,
   },
   animate: {
     y: 0,
+    opacity: 1,
     transition: {
       ease: [0.6, 0.01, 0.01, 1],
-      duration: 1,
+      duration: .8,
+    },
+  },
+};
+const paragraphAnimation = {
+  initial: {
+    y: 20, 
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      ease: [0.6, 0.01, 0.01, 1],
+      duration: .8,
+      delay: 1.8
+    },
+  },
+};
+const linkAnimation = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      ease: [0.6, 0.01, 0.01, 1],
+      duration: .8,
+      delay: 2.2
     },
   },
 };
 
 const MotionSection = motion(StyledSection);
+const MotionLink = motion (StyledLink)
 
-export default function LetsWorkTogetherSection() {
-  const AnimatedHeadingLetters = ({ title }) => (
-    <motion.h2
-      variants={heading}
-      initial="initial"
-      animate="animate"
-      className="animated-title"
-    >
-      {[...title].map((letter) => (
-        <motion.span variants={letterAnimation} className="animated-letter">
+const AnimatedHeadingLetters = ({ title }) => (
+  <motion.h2
+    variants={heading}
+    className="animated-title"
+  >
+    {[...title].map((letter, index) => {
+      if(letter === ' '){
+        return(
+          <motion.span key={`${letter}-${index}`} variants={letterAnimation} className="animated-letter space">
+            {` `}
+          </motion.span>
+        )
+      }else {
+        return(<motion.span key={`${letter}-${index}`} variants={letterAnimation} className="animated-letter">
           {letter}
         </motion.span>
-      ))}
-    </motion.h2>
-  );
+        )
+      }
+      
+    })}
+  </motion.h2>
+);
+
+export default function LetsWorkTogetherSection() {
 
   return (
-    <MotionSection variants={heading}>
-      <AnimatedHeadingLetters title="Let's Work Together" />
-      <p>
+    <MotionSection variants={heading} initial="initial"
+    whileInView="animate"
+    viewport={{ once: true, amount: 0.75 }}>
+      <AnimatedHeadingLetters title={`Let's Work Together`} />
+      <motion.p variants={paragraphAnimation}>
         Whether you have a question, would like to work together, or just want
         to connect, feel free to reach out.
-      </p>
+      </motion.p>
       <StyledLink
         title="alex@aandres.dev"
         href="mailto:alex@aandres.dev"
         linkTitle={"Send me an email"}
         anchor={true}
+        variants={linkAnimation}
       />
     </MotionSection>
   );

@@ -109,33 +109,38 @@ export default function SkillsSection() {
         opportunity to further develop my skills and broaden my skillset.
       </motion.p>
       <div className="skill-section">
-        <div className="frontend">
+        <motion.div  
+        initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ ease: "easeOut", staggerChildren: 0.05 }}
+      className="frontend">
           <motion.h3 variants={itemVariants}>Frontend & Design</motion.h3>
           <ul>
             <motion.li variants={listVariants}>Javascript ES6</motion.li>
             <motion.li variants={listVariants}>HTML5 & CSS</motion.li>
-            <motion.li i variants={listVariants}>
+            <motion.li variants={listVariants}>
               SASS
             </motion.li>
-            <motion.li i variants={listVariants}>
+            <motion.li variants={listVariants}>
               Styled Components
             </motion.li>
-            <motion.li i variants={listVariants}>
+            <motion.li variants={listVariants}>
               React
             </motion.li>
-            <motion.li i variants={listVariants}>
+            <motion.li variants={listVariants}>
               Next JS
             </motion.li>
-            <motion.li i variants={listVariants}>
+            <motion.li variants={listVariants}>
               Gatsby
             </motion.li>
-            <motion.li i variants={listVariants}>
+            <motion.li variants={listVariants}>
               Framer Motion
             </motion.li>
-            <motion.li i variants={listVariants}>
+            <motion.li variants={listVariants}>
               PHP
             </motion.li>
-            <motion.li i variants={listVariants}>
+            <motion.li variants={listVariants}>
               TypeScript
             </motion.li>
             <motion.li variants={listVariants}>SEO Best Practices</motion.li>
@@ -144,8 +149,11 @@ export default function SkillsSection() {
             <motion.li variants={listVariants}>Photoshop</motion.li>
             <motion.li variants={listVariants}>Illustrator</motion.li>
           </ul>
-        </div>
-        <div className="backend">
+        </motion.div>
+        <motion.div initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ ease: "easeOut", staggerChildren: 0.05 }} className="backend">
           <motion.h3 variants={itemVariants}>Backend & Dev Tools</motion.h3>
           <ul>
             <motion.li variants={listVariants}>Node JS</motion.li>
@@ -160,7 +168,7 @@ export default function SkillsSection() {
             <motion.li variants={listVariants}>Jest</motion.li>
             <motion.li variants={listVariants}>Selenium</motion.li>
           </ul>
-        </div>
+        </motion.div>
       </div>
     </MotionSection>
   );

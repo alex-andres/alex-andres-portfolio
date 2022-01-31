@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import {motion} from 'framer-motion';
 
 const Anchor = styled.a`
   display: inline-block;
@@ -24,44 +25,49 @@ const Animated = styled.span`
   }
 `;
 
+const MotionAnchor = motion(Anchor);
+
 export default function StyledLink({
   title,
   href,
   anchor,
   linkTitle,
-  external
+  external,
+  variants
 
 }) {
   if (anchor) {
     return (
-      <Anchor
+      <MotionAnchor
         href={`${href ? href : title}`}
         title={linkTitle ? linkTitle : `${title}`}
+        variants={variants}
       >
         {title}
         <Animated aria-hidden={true}>{title}</Animated>
-      </Anchor>
+      </MotionAnchor>
     );
   } else if(external) {
     return (
-      <Anchor
+      <MotionAnchor
         href={`${href ? href : title}`}
         title={linkTitle ? linkTitle : `${title}`}
         target="_blank"
         rel="noreferrer"
+        variants={variants}
       >
         {title}
         <Animated aria-hidden={true}>{title}</Animated>
-      </Anchor>
+      </MotionAnchor>
     );
   } else {
 
     return (
       <Link href={`/${href ? href : title}`} passHref>
-        <Anchor title={linkTitle ? linkTitle : `${title}`}>
+        <MotionAnchor title={linkTitle ? linkTitle : `${title}`} variants={variants}>
           {title}
           <Animated aria-hidden={true}>{title}</Animated>
-        </Anchor>
+        </MotionAnchor>
       </Link>
     );
   }
