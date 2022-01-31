@@ -25,8 +25,20 @@ const Line = (props) => (
 const topLine = (
   <Line
     variants={{
-      closed: { x1: 0, y1: 3, x2: 32, y2: 3 },
-      open: { x1: 7, y1: 3, x2: 24, y2: 19 },
+      closed: {
+        x1: 0,
+        y1: 3,
+        x2: 32,
+        y2: 3,
+        transition: { ease: "easeOut", duration: 0.25 },
+      },
+      open: {
+        x1: 7,
+        y1: 3,
+        x2: 24,
+        y2: 19,
+        transition: { ease: "easeIn", duration: 0.4 },
+      },
     }}
     stroke="hsl(138, 42%, 65%)"
   />
@@ -35,8 +47,8 @@ const middleLine = (
   <Line
     stroke="hsl(175, 37%, 40%)"
     variants={{
-      closed: { opacity: 1 },
-      open: { opacity: 0 },
+      closed: { opacity: 1, transition: { ease: "easeOut", duration: 0.25 } },
+      open: { opacity: 0, transition: { ease: "easeIn", duration: 0.4 } },
     }}
     x1="0"
     y1="11"
@@ -47,8 +59,20 @@ const middleLine = (
 const bottomLine = (
   <Line
     variants={{
-      closed: { x1: 0, y1: 19, x2: 32, y2: 19 },
-      open: { x1: 7, y1: 19, x2: 24, y2: 3 },
+      closed: {
+        x1: 0,
+        y1: 19,
+        x2: 32,
+        y2: 19,
+        transition: { ease: "easeOut", duration: 0.25 },
+      },
+      open: {
+        x1: 7,
+        y1: 19,
+        x2: 24,
+        y2: 3,
+        transition: { ease: "easeIn", duration: 0.4 },
+      },
     }}
     stroke="hsl(181, 56%, 17%)"
   />

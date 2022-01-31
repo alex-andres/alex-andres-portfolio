@@ -54,6 +54,7 @@ export default function HeroImage() {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%) ",
           scale: 1,
           transition: {
+            delay: 1,
             duration: 1.6,
             ease: [0.6, 0.01, 0.01, 1],
           },
@@ -66,6 +67,7 @@ export default function HeroImage() {
         animate: {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) ",
           transition: {
+            delay: 1,
             duration: 1.6,
             ease: [0.6, 0.01, 0.01, 1],
           },

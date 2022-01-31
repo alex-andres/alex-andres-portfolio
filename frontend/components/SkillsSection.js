@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
@@ -61,55 +62,106 @@ const StyledSection = styled.section`
   }
 `;
 
+const itemVariants = {
+  offscreen: {
+    y: 20,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 0.4,
+    },
+  },
+};
+const listVariants = {
+  offscreen: {
+    y: 20,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
+const MotionSection = motion(StyledSection);
+
 export default function SkillsSection() {
   return (
-    <StyledSection>
-      <h2>My Skills</h2>
-      <p>
+    <MotionSection
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ ease: "easeOut", staggerChildren: 0.05 }}
+    >
+      <motion.h2 variants={itemVariants}>My Skills</motion.h2>
+      <motion.p variants={itemVariants}>
         Web development is a vast world that has given me the opportunity to be
         a career student. Throughout my learning I have solidified my
         understanding of computer science fundamentals and web development and
         user experience best practices. Each new project I work on is an
         opportunity to further develop my skills and broaden my skillset.
-      </p>
+      </motion.p>
       <div className="skill-section">
         <div className="frontend">
-          <h3>Frontend & Design</h3>
+          <motion.h3 variants={itemVariants}>Frontend & Design</motion.h3>
           <ul>
-            <li>Javascript ES6</li>
-            <li>HTML5 & CSS</li>
-            <li>SASS</li>
-            <li>Styled Components</li>
-            <li>React</li>
-            <li>Next JS</li>
-            <li>Gatsby</li>
-            <li>Framer Motion</li>
-            <li>PHP</li>
-            <li>TypeScript</li>
-            <li>SEO Best Practices</li>
-            <li>A11y Best Practices</li>
-            <li>Adobe XD</li>
-            <li>Photoshop</li>
-            <li>Illustrator</li>
+            <motion.li variants={listVariants}>Javascript ES6</motion.li>
+            <motion.li variants={listVariants}>HTML5 & CSS</motion.li>
+            <motion.li i variants={listVariants}>
+              SASS
+            </motion.li>
+            <motion.li i variants={listVariants}>
+              Styled Components
+            </motion.li>
+            <motion.li i variants={listVariants}>
+              React
+            </motion.li>
+            <motion.li i variants={listVariants}>
+              Next JS
+            </motion.li>
+            <motion.li i variants={listVariants}>
+              Gatsby
+            </motion.li>
+            <motion.li i variants={listVariants}>
+              Framer Motion
+            </motion.li>
+            <motion.li i variants={listVariants}>
+              PHP
+            </motion.li>
+            <motion.li i variants={listVariants}>
+              TypeScript
+            </motion.li>
+            <motion.li variants={listVariants}>SEO Best Practices</motion.li>
+            <motion.li variants={listVariants}>A11y Best Practices</motion.li>
+            <motion.li variants={listVariants}>Adobe XD</motion.li>
+            <motion.li variants={listVariants}>Photoshop</motion.li>
+            <motion.li variants={listVariants}>Illustrator</motion.li>
           </ul>
         </div>
         <div className="backend">
-          <h3>Backend & Dev Tools</h3>
+          <motion.h3 variants={itemVariants}>Backend & Dev Tools</motion.h3>
           <ul>
-            <li>Node JS</li>
-            <li>Express</li>
-            <li>Axios</li>
-            <li>WebPack</li>
-            <li>SQL DBs</li>
-            <li>NoSQL DBs</li>
-            <li>GraphQL</li>
-            <li>REST APIs </li>
-            <li>VS Code</li>
-            <li>Jest</li>
-            <li>Selenium</li>
+            <motion.li variants={listVariants}>Node JS</motion.li>
+            <motion.li variants={listVariants}>Express</motion.li>
+            <motion.li variants={listVariants}>Axios</motion.li>
+            <motion.li variants={listVariants}>WebPack</motion.li>
+            <motion.li variants={listVariants}>SQL DBs</motion.li>
+            <motion.li variants={listVariants}>NoSQL DBs</motion.li>
+            <motion.li variants={listVariants}>GraphQL</motion.li>
+            <motion.li variants={listVariants}>REST APIs </motion.li>
+            <motion.li variants={listVariants}>VS Code</motion.li>
+            <motion.li variants={listVariants}>Jest</motion.li>
+            <motion.li variants={listVariants}>Selenium</motion.li>
           </ul>
         </div>
       </div>
-    </StyledSection>
+    </MotionSection>
   );
 }

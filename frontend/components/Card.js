@@ -1,6 +1,24 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styled from "styled-components";
 import Button from "./Button";
+
+const itemVariants = {
+  offscreen: {
+    y: 20,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 0.4,
+    },
+  },
+};
+
+const MotionButton = motion(Button);
 
 export default function Card({
   title,
@@ -12,19 +30,25 @@ export default function Card({
   className,
 }) {
   return (
-    <article className={className}>
+    <motion.article
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.75 }}
+      transition={{ staggerChildren: 0.15 }}
+      className={className}
+    >
       <div className="header">
-        <div className="image-wrapper">
+        <motion.div variants={itemVariants} className="image-wrapper">
           <Image layout="fill" objectFit="cover" src={imageSrc} alt={alt} />
-        </div>
+        </motion.div>
         <div className="heading-wrapper">
-          <h3>{title}</h3>
+          <motion.h3 variants={itemVariants}>{title}</motion.h3>
         </div>
       </div>
       <div className="text-container">
-        <p>{description}</p>
-        <Button buttonText={buttonText} path={path} />
+        <motion.p variants={itemVariants}>{description}</motion.p>
+        <Button variants={itemVariants} buttonText={buttonText} path={path} />
       </div>
-    </article>
+    </motion.article>
   );
 }

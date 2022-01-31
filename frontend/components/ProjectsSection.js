@@ -4,6 +4,7 @@ import saaa from "../public/images/projectCards/saaa.jpg";
 import smsi from "../public/images/projectCards/smsi.jpg";
 import al4m from "../public/images/projectCards/al4m.jpg";
 import aadp from "../public/images/projectCards/aadp.jpg";
+import { motion } from "framer-motion";
 
 const StyledSection = styled.section`
   padding-bottom: 128px;
@@ -110,7 +111,12 @@ export default function ProjectsSection() {
   return (
     <StyledSection>
       <h2 id="projects">Projects</h2>
-      <div className="card-container">{projectCards}</div>
+      <motion.div
+        transition={{ staggerChildren: 0.3 }}
+        className="card-container"
+      >
+        {projectCards}
+      </motion.div>
     </StyledSection>
   );
 }

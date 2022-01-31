@@ -73,20 +73,14 @@ const list = {
       duration: 0.25,
     },
   },
-  // exit: {
-  //   transition: {
-  //     ease: "easein",
-  //     duration: 0.25,
-  //   },
-  // },
 };
 export default function MobileNavMenu() {
   const { closeMenu } = useMenuContext();
   return (
     <MotionMobileNavMenu
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ opacity: 0, x: 0 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, transition: { duration: 0.25 } }}
     >
       <AnimatePresence>
         <motion.button
@@ -98,18 +92,23 @@ export default function MobileNavMenu() {
             opacity: 1,
             transition: { ease: "easeOut", duration: 0.1 },
           }}
-          exit={{ opacity: 1, transition: { ease: "easeOut", duration: 0.1 } }}
+          exit={{
+            opacity: 0,
+            transition: { ease: "easeIn", duration: 0.4 },
+          }}
           className="MobileNav__Backdrop"
           onClick={closeMenu}
           key="button-background"
         />
-        <nav className="MobileNav__Nav">
-          <MotionMobileNav
-            initial="hidden"
-            animate="visible"
-            variants={list}
-            className="MobileNav__Top"
-          >
+      </AnimatePresence>
+      <nav className="MobileNav__Nav">
+        <MotionMobileNav
+          initial="hidden"
+          animate="visible"
+          variants={list}
+          className="MobileNav__Top"
+        >
+          <AnimatePresence>
             <motion.div
               initial={{
                 opacity: 0,
@@ -121,7 +120,11 @@ export default function MobileNavMenu() {
                 x: 0,
                 transition: { ease: "easeOut", duration: 0.1 },
               }}
-              exit={{ x: -125, opacity: 0 }}
+              exit={{
+                opacity: 0,
+                x: -125,
+                transition: { ease: "easeIn", duration: 0.4 },
+              }}
               key="home"
             >
               <Link href="/">
@@ -139,7 +142,6 @@ export default function MobileNavMenu() {
                 },
                 hidden: { x: -125, opacity: 0 },
               }}
-              exit={{ x: -125, opacity: 0 }}
               key="projects"
             >
               <Link href="/#projects">
@@ -157,7 +159,6 @@ export default function MobileNavMenu() {
                 },
                 hidden: { x: -125, opacity: 0 },
               }}
-              exit={{ x: -125, opacity: 0 }}
               key="process"
             >
               <Link href="/process">
@@ -180,7 +181,6 @@ export default function MobileNavMenu() {
                 },
                 hidden: { x: -125, opacity: 0 },
               }}
-              exit={{ x: -125, opacity: 0 }}
               key="about"
             >
               <Link href="/about">
@@ -198,7 +198,6 @@ export default function MobileNavMenu() {
                 },
                 hidden: { x: -125, opacity: 0 },
               }}
-              exit={{ x: -125, opacity: 0 }}
               key="resume"
             >
               <a
@@ -221,7 +220,6 @@ export default function MobileNavMenu() {
                 },
                 hidden: { x: -125, opacity: 0 },
               }}
-              exit={{ x: -125, opacity: 0 }}
               key="dark-mode"
             >
               <button
@@ -232,9 +230,9 @@ export default function MobileNavMenu() {
                 <MoonIcon />
               </button>
             </motion.div>
-          </MotionMobileNav>
-        </nav>
-      </AnimatePresence>
+          </AnimatePresence>
+        </MotionMobileNav>
+      </nav>
     </MotionMobileNavMenu>
   );
 }

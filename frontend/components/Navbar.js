@@ -8,6 +8,7 @@ import useScrollPositon from "../hooks/useScrollPosition";
 import { MenuProvider } from "../state/Menu";
 import StyledLink from "./UI-Components/StyledLink";
 import MoonIcon from "./icons/MoonIcon";
+import { motion } from "framer-motion";
 
 const Header = styled.div`
   position: sticky;
@@ -75,6 +76,24 @@ const Header = styled.div`
     }
   }
 `;
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    staggerChildren: 0.1,
+  },
+};
+
+const item = {
+  hidden: { opacity: 0 },
+  show: (custom) => ({
+    opacity: 1,
+    transition: {
+      duration: custom * 0.5,
+      ease: [0.6, 0.01, 0.01, 1],
+    },
+  }),
+};
 
 export default function Navbar() {
   const scrollPosition = useScrollPositon();
@@ -87,18 +106,43 @@ export default function Navbar() {
               <LogoLink />
             </div>
             <nav className="Navigation__Wrapper">
-              <ul className="Navigation__List">
-                <li className="Navigation__ListItem">
+              <motion.ul
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="Navigation__List"
+              >
+                <motion.li
+                  custom={2}
+                  variants={item}
+                  className="Navigation__ListItem"
+                >
                   <NavItem title={"projects"} scroll={true} />
-                </li>
-                <li className="Navigation__ListItem">
+                </motion.li>
+                <motion.li
+                  custom={2.25}
+                  variants={item}
+                  className="Navigation__ListItem"
+                >
                   <NavItem title={"process"} />
-                </li>
-                <li className="Navigation__ListItem">
+                </motion.li>
+                <motion.li
+                  variants={item}
+                  custom={2.5}
+                  className="Navigation__ListItem"
+                >
                   <NavItem title={"about"} />
-                </li>
-                <li className="Navigation__ListItem">
-                  <div className="NavItem__Wrapper">
+                </motion.li>
+                <motion.li
+                  variants={item}
+                  custom={2.75}
+                  className="Navigation__ListItem"
+                >
+                  <motion.div
+                    variants={item}
+                    custom={3}
+                    className="NavItem__Wrapper"
+                  >
                     <div className="NavItem__NavItemLink">
                       <StyledLink
                         href="/Alex-Andres-Resume-2022.pdf"
@@ -106,9 +150,9 @@ export default function Navbar() {
                         title="Resume"
                       />
                     </div>
-                  </div>
-                </li>
-              </ul>
+                  </motion.div>
+                </motion.li>
+              </motion.ul>
             </nav>
           </div>
           <div className="Header__RightDesktop">

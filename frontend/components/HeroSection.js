@@ -75,6 +75,7 @@ const container = {
   show: {
     opacity: 1,
     delayChildren: 0.4,
+    delay: 2,
   },
 };
 

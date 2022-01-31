@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import StyledLink from "./UI-Components/StyledLink";
 
@@ -21,10 +22,49 @@ const StyledSection = styled.section`
   }
 `;
 
+const heading = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const letterAnimation = {
+  initial: {
+    y: 400,
+  },
+  animate: {
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, 0.01, 1],
+      duration: 1,
+    },
+  },
+};
+
+const MotionSection = motion(StyledSection);
+
 export default function LetsWorkTogetherSection() {
+  const AnimatedHeadingLetters = ({ title }) => (
+    <motion.h2
+      variants={heading}
+      initial="initial"
+      animate="animate"
+      className="animated-title"
+    >
+      {[...title].map((letter) => (
+        <motion.span variants={letterAnimation} className="animated-letter">
+          {letter}
+        </motion.span>
+      ))}
+    </motion.h2>
+  );
+
   return (
-    <StyledSection>
-      <h2>Let&apos;s Work Together</h2>
+    <MotionSection variants={heading}>
+      <AnimatedHeadingLetters title="Let's Work Together" />
       <p>
         Whether you have a question, would like to work together, or just want
         to connect, feel free to reach out.
@@ -35,6 +75,6 @@ export default function LetsWorkTogetherSection() {
         linkTitle={"Send me an email"}
         anchor={true}
       />
-    </StyledSection>
+    </MotionSection>
   );
 }
