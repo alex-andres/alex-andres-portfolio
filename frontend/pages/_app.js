@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "../components/ThemeContext";
 import Layout from "../components/Layout";
-import Script from "next/script";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {

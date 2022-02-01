@@ -4,17 +4,18 @@ import { ThemeContext } from "./ThemeContext";
 
 export default function ThemeToggleButton() {
   const { colorMode, setColorMode } = useContext(ThemeContext);
-  const setTheme = () => {
-    console.log(colorMode);
-    console.log("clicked");
-    setColorMode(colorMode === "light" ? "dark" : "light");
-  };
+
+  if (!colorMode) {
+    return null;
+  }
   return (
     <button
       aria-label="Activate Dark Mode"
       title="Activate Dark Mode"
       className="ThemeToggleIconWrapper"
-      onClick={setTheme}
+      onClick={() =>
+        colorMode === "light" ? setColorMode("dark") : setColorMode("light")
+      }
     >
       <ThemeToggleIcon colorMode={colorMode} />
     </button>
