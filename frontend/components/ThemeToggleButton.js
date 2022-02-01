@@ -3,7 +3,7 @@ import ThemeToggleIcon from "./icons/ThemeToggleIcon";
 import { ThemeContext } from "./ThemeContext";
 
 export default function ThemeToggleButton() {
-  const { colorMode, setColorMode } = useContext(ThemeContext);
+  const { colorMode, rawSetColorMode } = useContext(ThemeContext);
 
   if (!colorMode) {
     return null;
@@ -14,7 +14,9 @@ export default function ThemeToggleButton() {
       title="Activate Dark Mode"
       className="ThemeToggleIconWrapper"
       onClick={() =>
-        colorMode === "light" ? setColorMode("dark") : setColorMode("light")
+        colorMode === "light"
+          ? rawSetColorMode("dark")
+          : rawSetColorMode("light")
       }
     >
       <ThemeToggleIcon colorMode={colorMode} />

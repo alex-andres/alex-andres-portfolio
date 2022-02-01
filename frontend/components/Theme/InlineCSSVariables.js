@@ -8,13 +8,13 @@ import {
 } from "./constants";
 
 function setColorsByTheme() {
-  const colors = "🌈";
-  const colorModeKey = "🔑";
-  const colorModeCssProp = "⚡️";
+  const colors = "colorString";
+  const colorModeKey = "colorKey";
+  const colorModeCssProp = "colorCSSProp";
 
   const mql = window.matchMedia("(prefers-color-scheme: dark)");
   const prefersDarkFromMQ = mql.matches;
-  const persistedPreference = localStorage.getItem(colorModeKey);
+  const persistedPreference = localStorage.getItem(`color-mode`);
 
   let colorMode = "light";
 
@@ -37,19 +37,19 @@ function setColorsByTheme() {
   });
 }
 
-export const MagicScriptTag = () => {
+export function MagicScriptTag() {
   const boundFn = String(setColorsByTheme)
-    .replace("'🌈'", JSON.stringify(COLORS))
-    .replace("🔑", COLOR_MODE_KEY)
-    .replace("⚡️", INITIAL_COLOR_MODE_CSS_PROP);
+    .replace("colorString", JSON.stringify(COLORS))
+    .replace("colorKey", COLOR_MODE_KEY)
+    .replace("colorCSSProp", INITIAL_COLOR_MODE_CSS_PROP);
 
   let calledFunction = `(${boundFn})()`;
 
-  calledFunction = Terser.minify(calledFunction).code;
+  // calledFunction = Terser.minify(calledFunction).code;
 
   // eslint-disable-next-line react/no-danger
   return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
-};
+}
 
 /**
  * If the user has JS disabled, the injected script will never fire!
