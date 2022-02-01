@@ -3,7 +3,7 @@ import { ServerStyleSheet } from "styled-components";
 import {
   FallbackStyles,
   MagicScriptTag,
-} from "../components/Theme/InlineCssVariables";
+} from "~/components/Theme/InlineCssVariables";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
