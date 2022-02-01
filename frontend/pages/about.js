@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Head from "next/head";
 import styled from "styled-components";
 import HeaderSection from "../components/HeaderSection";
@@ -35,8 +36,14 @@ export default function AboutPage() {
         />
       </Head>
       <MaxWidthWrapper>
-        <HeaderSection data={headerData} />
-        <ImageTextSection data={aboutCardData} about={true} />
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <HeaderSection data={headerData} />
+          <ImageTextSection data={aboutCardData} about={true} />
+        </motion.div>
         <LetsWorkTogetherSection />
       </MaxWidthWrapper>
     </StyledAboutPage>

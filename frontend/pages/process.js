@@ -10,6 +10,7 @@ import test from "../public/images/process/test.jpg";
 import iterate from "../public/images/process/iterate.jpg";
 import deploy from "../public/images/process/deploy.jpg";
 import Head from "next/head";
+import { motion } from "framer-motion";
 
 const StyledProcessPage = styled.div`
   max-width: ;
@@ -80,6 +81,21 @@ const processCardData = [
   },
 ];
 
+const itemVariants = {
+  offscreen: {
+    y: 20,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 0.5,
+    },
+  },
+};
+
 export default function ProcessPage() {
   return (
     <StyledProcessPage>
@@ -96,8 +112,14 @@ export default function ProcessPage() {
         />
       </Head>
       <MaxWidthWrapper>
-        <HeaderSection data={headerData} />
-        <ImageTextSection data={processCardData} about={false} />
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <HeaderSection data={headerData} />
+          <ImageTextSection data={processCardData} about={false} />
+        </motion.div>
         <LetsWorkTogetherSection />
       </MaxWidthWrapper>
     </StyledProcessPage>

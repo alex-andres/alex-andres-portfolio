@@ -1,5 +1,21 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const itemVariants = {
+  offscreen: {
+    y: 20,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 0.4,
+    },
+  },
+};
 
 const StyledSection = styled.section`
   padding-bottom: 64px;
@@ -61,7 +77,7 @@ const StyledSection = styled.section`
   .image-container {
     display: grid;
     width: 100%;
-    min-height: 250px;
+    min-height: 200px;
     padding-bottom: 32px;
     @media only screen and (min-width: 768px) {
       width: 50%;
@@ -130,8 +146,16 @@ export default function ImageTextSection({ data, about }) {
     const id = card.title.toLowerCase();
     if (!about) {
       return (
-        <article key={card.title} className="process-row" id={id}>
-          <div className="image-container">
+        <motion.article
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ delay: 0.2, staggerChildren: 0.15 }}
+          key={card.title}
+          className="process-row"
+          id={id}
+        >
+          <motion.div variants={itemVariants} className="image-container">
             <div className="image-wrapper">
               <Image
                 src={card.src}
@@ -145,14 +169,24 @@ export default function ImageTextSection({ data, about }) {
             <div className={`heading-wrapper heading-${index + 1}`}>
               <h2>{card.title}</h2>
             </div>
-          </div>
-          <div className="text-container">{bodyParagraphs}</div>
-        </article>
+          </motion.div>
+          <motion.div variants={itemVariants} className="text-container">
+            {bodyParagraphs}
+          </motion.div>
+        </motion.article>
       );
     } else {
       return (
-        <article key={card.title} className="process-row" id={id}>
-          <div className="image-container">
+        <motion.article
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ delay: 0.2, staggerChildren: 0.15 }}
+          key={card.title}
+          className="process-row"
+          id={id}
+        >
+          <motion.div variants={itemVariants} className="image-container">
             <div className="image-wrapper">
               <Image
                 src={card.src}
@@ -160,9 +194,11 @@ export default function ImageTextSection({ data, about }) {
                 layout="fill"
               />
             </div>
-          </div>
-          <div className="text-container">{bodyParagraphs}</div>
-        </article>
+          </motion.div>
+          <motion.div variants={itemVariants} className="text-container">
+            {bodyParagraphs}
+          </motion.div>
+        </motion.article>
       );
     }
   });
