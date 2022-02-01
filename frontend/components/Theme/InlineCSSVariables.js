@@ -77,12 +77,3 @@ export const FallbackStyles = () => {
 
   return <style>{wrappedInSelector}</style>;
 };
-
-export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
-  setHeadComponents(<FallbackStyles />);
-  setPreBodyComponents(<MagicScriptTag />);
-};
-
-export const wrapPageElement = ({ element }) => {
-  return <App>{element}</App>;
-};
