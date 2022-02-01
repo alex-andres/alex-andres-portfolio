@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import {motion} from 'framer-motion';
+import { motion } from "framer-motion";
 
 const Anchor = styled.a`
   display: inline-block;
@@ -8,7 +8,7 @@ const Anchor = styled.a`
   text-decoration: none;
   font-size: 1.2rem;
   text-decoration: none;
-  color: var(--black);
+  color: var(--color-text);
   cursor: pointer;
 `;
 const Animated = styled.span`
@@ -16,7 +16,7 @@ const Animated = styled.span`
   position: absolute;
   top: 0;
   left: 0;
-  filter: drop-shadow(0px 0px 4px white);
+  filter: drop-shadow(0px 0px 4px var(--color-background));
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
   transition: clip-path 1000ms;
   ${Anchor}:hover & {
@@ -33,8 +33,7 @@ export default function StyledLink({
   anchor,
   linkTitle,
   external,
-  variants
-
+  variants,
 }) {
   if (anchor) {
     return (
@@ -47,7 +46,7 @@ export default function StyledLink({
         <Animated aria-hidden={true}>{title}</Animated>
       </MotionAnchor>
     );
-  } else if(external) {
+  } else if (external) {
     return (
       <MotionAnchor
         href={`${href ? href : title}`}
@@ -61,10 +60,12 @@ export default function StyledLink({
       </MotionAnchor>
     );
   } else {
-
     return (
       <Link href={`/${href ? href : title}`} passHref>
-        <MotionAnchor title={linkTitle ? linkTitle : `${title}`} variants={variants}>
+        <MotionAnchor
+          title={linkTitle ? linkTitle : `${title}`}
+          variants={variants}
+        >
           {title}
           <Animated aria-hidden={true}>{title}</Animated>
         </MotionAnchor>

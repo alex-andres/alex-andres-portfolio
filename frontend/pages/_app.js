@@ -1,5 +1,7 @@
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "../components/ThemeContext";
 import Layout from "../components/Layout";
+import Script from "next/script";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -22,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     --dropShadow: hsla(0, 0%, 0%, 30%);
     --maxWidth: 1164px;
     --boxShadow: 2px 2px 8px var(--dropShadow);
-    --shadow-color: 0deg 0% 63%;
+    --shadow-color: var(--color-shadow);
     --shadow-elevation-low:
       0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
       0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
@@ -48,6 +50,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: calc(1em + 0.625rem);
     -webkit-font-smoothing: antialiased;
     font-size: 1rem;
+  
   }
   /*
   1. Use a more-intuitive box-sizing model.
@@ -132,9 +135,10 @@ p, h1, h2, h3, h4, h5, h6 {
     height: 100%;
     font-family: Outfit, --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     position: relative;
-    
-    
+    background-color: var(--color-background);
+    color: var(--color-text);
     line-height: 1.5;
+    transition: background-color easeOut .2s;
   }
   h1, h2, h3, h4, h5, h6, p{
     font-weight: 300;
@@ -170,18 +174,16 @@ p, h1, h2, h3, h4, h5, h6 {
     }
   }
 `;
-const theme = {
-  colors: {
-    primary: "#fafafa",
-  },
-};
+
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      <GlobalStyle />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider>
+        <GlobalStyle />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </>
   );
 }

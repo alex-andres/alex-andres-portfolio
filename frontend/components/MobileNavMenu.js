@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Link from "next/link";
 import { useMenuContext } from "../state/Menu";
 import { motion, AnimatePresence } from "framer-motion";
-import MoonIcon from "./icons/MoonIcon";
+import MoonIcon from "./icons/ThemeToggleIcon";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 const StyledMobileNavMenu = styled.div`
   position: fixed;
@@ -34,7 +35,7 @@ const StyledMobileNavMenu = styled.div`
     width: 100vw;
     height: 100vh;
     z-index: 1;
-    background: hsla(0deg, 0%, 100%, 0.75);
+    background: var(--color-mobile-bg);
     backdrop-filter: blur(8px);
   }
   .MobileNav__NavLink {
@@ -42,19 +43,19 @@ const StyledMobileNavMenu = styled.div`
     display: block;
     text-decoration: none;
     padding: 16px 16px 16px 32px;
-    color: var(--black);
+    color: var(--color-text);
     font-size: 28px;
-  }
-  .DarkModeToggle__IconWrapper {
-    padding: 16px 16px 16px 32px;
-    svg {
-      fill: var(--black);
-      height: 40px !important;
-      width: auto !important;
-    }
   }
   .MobileNav__Bottom {
     padding-top: 10vh;
+    .ThemeToggleIconWrapper {
+      padding: 16px 16px 16px 32px;
+    svg {
+      fill: var(--color-text));
+      height: 40px !important;
+      width: auto !important;
+    }
+    }
   }
 `;
 
@@ -222,13 +223,7 @@ export default function MobileNavMenu() {
               }}
               key="dark-mode"
             >
-              <button
-                aria-label="Activate Dark Mode"
-                title="Activate Dark Mode"
-                className="DarkModeToggle__IconWrapper"
-              >
-                <MoonIcon />
-              </button>
+              <ThemeToggleButton className={"theme-toggle-button"} />
             </motion.div>
           </AnimatePresence>
         </MotionMobileNav>

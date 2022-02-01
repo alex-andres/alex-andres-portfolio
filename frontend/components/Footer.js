@@ -14,7 +14,7 @@ import InstagramIcon from "./icons/InstagramIcon";
 import GithubIcon from "./icons/GithubIcon";
 
 const StyledFooter = styled.footer`
-  background-color: var(--transparentSeaFoam);
+  background-color: var(--color-secondary);
   .Footer__InnerWrapper {
     display: flex;
     flex-direction: column;

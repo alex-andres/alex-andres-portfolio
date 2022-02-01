@@ -1,5 +1,9 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import {
+  FallbackStyles,
+  MagicScriptTag,
+} from "../components/Theme/InlineCssVariables";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -30,8 +34,11 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en-US">
-        <Head />
+        <Head>
+          <FallbackStyles />
+        </Head>
         <body>
+          <MagicScriptTag />
           <div id="mobile-nav-portal" />
           <Main />
           <NextScript />

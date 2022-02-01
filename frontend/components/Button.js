@@ -13,6 +13,7 @@ const StyledButtonContainer = styled.div`
   width: max-content;
   height: max-content;
   transition: box-shadow 1000ms;
+  display: inline-block;
   :hover {
     box-shadow: var(--shadow-elevation-low);
     transition: box-shadow 300ms;

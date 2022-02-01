@@ -29,7 +29,7 @@ const StyledSection = styled.section`
     .process-card {
       width: 100%;
       max-width: 356px;
-      background: var(--white);
+      background: var(--color-secondary);
       border-radius: 8px;
       box-shadow: var(--shadow-elevation-medium);
       @media only screen and (min-width: 716px) {
@@ -74,9 +74,12 @@ const StyledSection = styled.section`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        background-color: var(--color-secondary);
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
         p {
           font-size: 1rem;
-          color: var(--darkgrey);
+          color: var(--color-secondary-text);
           padding-bottom: 24px;
         }
       }
