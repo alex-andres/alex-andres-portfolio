@@ -13,7 +13,7 @@ const itemVariants = {
     opacity: 1,
     transition: {
       ease: "easeOut",
-      duration: 0.4,
+      duration: 0.25,
     },
   },
 };

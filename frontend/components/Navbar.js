@@ -7,15 +7,15 @@ import NavItem from "./NavItem";
 import useScrollPositon from "../hooks/useScrollPosition";
 import { MenuProvider } from "../state/Menu";
 import StyledLink from "./UI-Components/StyledLink";
-import MoonIcon from "./icons/MoonIcon";
 import { motion } from "framer-motion";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 const Header = styled.div`
   position: sticky;
   top: 0px;
   z-index: 2;
   background: ${(props) =>
-    props.scrollPosition > 32 ? "var(--white)" : "none"};
+    props.scrollPosition > 32 ? "var(--color-secondary)" : "none"};
   box-shadow: ${(props) =>
     props.scrollPosition > 32 ? "var(--shadow-elevation-medium)" : "none"};
   transition: box-shadow ease-in 0.15s;
@@ -62,14 +62,14 @@ const Header = styled.div`
     padding: 10px;
     font-size: 1.2rem;
     text-decoration: none;
-    color: var(--black);
+    color: var(--color-text));
   }
   .Header__RightDesktop {
     @media screen and (max-width: 768px) {
       display: none;
     }
   }
-  .DarkModeToggle__IconWrapper {
+  .ThemeToggleButtonWrapper {
     svg {
       height: 24px;
       width: 21.45px;
@@ -156,13 +156,7 @@ export default function Navbar() {
             </nav>
           </div>
           <div className="Header__RightDesktop">
-            <button
-              aria-label="Activate Dark Mode"
-              title="Activate Dark Mode"
-              className="DarkModeToggle__IconWrapper"
-            >
-              <MoonIcon />
-            </button>
+            <ThemeToggleButton />
           </div>
           <div className="Header__RightMobile">
             <MobileNavBar />

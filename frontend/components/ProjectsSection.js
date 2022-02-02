@@ -49,7 +49,7 @@ const StyledSection = styled.section`
       }
       p {
         font-size: 1rem;
-        color: var(--darkgrey);
+        color: var(--color-secondary-text);
         padding-bottom: 18px;
         @media only screen and (min-width: 748px) {
           padding-bottom: 26px;
