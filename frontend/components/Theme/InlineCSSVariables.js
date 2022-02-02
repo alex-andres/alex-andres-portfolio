@@ -10,7 +10,7 @@ import {
 
 function setColorsByTheme() {
   const colors = "unique-id-1";
-  const colorModeKey = "unique-id-2";
+  const colorModeKey = "unique-id-4";
   const colorModeCssProp = "unique-id-3";
 
   const mql = window.matchMedia("(prefers-color-scheme: dark)");
