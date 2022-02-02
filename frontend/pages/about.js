@@ -4,8 +4,10 @@ import styled from "styled-components";
 import HeaderSection from "../components/HeaderSection";
 import ImageTextSection from "../components/ImageTextSection";
 import LetsWorkTogetherSection from "../components/LetsWorkTogetherSection";
+import TwitterCard from "../components/TwitterCard";
 import MaxWidthWrapper from "../components/UI-Components/MaxWidthWrapper";
 import costaRica from "../public/images/costa-rica-alex.jpg";
+
 const StyledAboutPage = styled.div``;
 
 const headerData = {
@@ -44,6 +46,7 @@ export default function AboutPage() {
           <HeaderSection data={headerData} />
           <ImageTextSection data={aboutCardData} about={true} />
         </motion.div>
+        <TwitterCard />
         <LetsWorkTogetherSection />
       </MaxWidthWrapper>
     </StyledAboutPage>
