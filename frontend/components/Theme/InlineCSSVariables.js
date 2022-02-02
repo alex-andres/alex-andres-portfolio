@@ -9,9 +9,9 @@ import {
 } from "./constants";
 
 function setColorsByTheme() {
-  const colors = "🌈";
-  const colorModeKey = "🔑";
-  const colorModeCssProp = "⚡️";
+  const colors = "unique-id-1";
+  const colorModeKey = "unique-id-2";
+  const colorModeCssProp = "unique-id-3";
 
   const mql = window.matchMedia("(prefers-color-scheme: dark)");
   const prefersDarkFromMQ = mql.matches;
@@ -40,16 +40,21 @@ function setColorsByTheme() {
 
 export function MagicScriptTag() {
   const boundFn = String(setColorsByTheme)
-    .replace("🌈", JSON.stringify(COLORS))
-    .replace("🔑", COLOR_MODE_KEY)
-    .replace("⚡️", INITIAL_COLOR_MODE_CSS_PROP);
+    .replace("unique-id-1", JSON.stringify(COLORS))
+    .replace("unique-id-2", COLOR_MODE_KEY)
+    .replace("unique-id-3", INITIAL_COLOR_MODE_CSS_PROP);
 
   let calledFunction = `(${boundFn})()`;
 
-  calledFunction = Terser.minify(calledFunction).code;
+  // calledFunction = Terser.minify(calledFunction).code;
 
   // eslint-disable-next-line react/no-danger
-  return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
+  return (
+    <Script
+      strategy="beforeInteractive"
+      dangerouslySetInnerHTML={{ __html: calledFunction }}
+    />
+  );
 }
 
 /**

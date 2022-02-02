@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "../components/ThemeContext";
 import Layout from "../components/Layout";
+import { MagicScriptTag } from "../components/Theme/InlineCSSVariables";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -179,6 +180,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <ThemeProvider>
         <GlobalStyle />
+        <MagicScriptTag />
         <Layout>
           <Component {...pageProps} />
         </Layout>
