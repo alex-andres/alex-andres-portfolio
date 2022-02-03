@@ -4,8 +4,9 @@ import styled from "styled-components";
 import HeaderSection from "../components/HeaderSection";
 import ImageTextSection from "../components/ImageTextSection";
 import LetsWorkTogetherSection from "../components/LetsWorkTogetherSection";
-import TwitterCard from "../components/TwitterCard";
+import TwitterFeedSection from "../components/TwitterFeedSection";
 import MaxWidthWrapper from "../components/UI-Components/MaxWidthWrapper";
+import { getTweets } from "../library/twitter";
 import costaRica from "../public/images/costa-rica-alex.jpg";
 
 const StyledAboutPage = styled.div``;
@@ -26,7 +27,7 @@ const aboutCardData = [
     ],
   },
 ];
-export default function AboutPage() {
+export default function AboutPage({ tweets }) {
   return (
     <StyledAboutPage>
       <Head>
@@ -46,9 +47,15 @@ export default function AboutPage() {
           <HeaderSection data={headerData} />
           <ImageTextSection data={aboutCardData} about={true} />
         </motion.div>
-        <TwitterCard />
+        <TwitterFeedSection tweets={tweets} />
         <LetsWorkTogetherSection />
       </MaxWidthWrapper>
     </StyledAboutPage>
   );
+}
+
+export async function getStaticProps() {
+  const tweets = await getTweets();
+
+  return { props: { tweets } };
 }
