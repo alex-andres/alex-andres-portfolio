@@ -95,6 +95,14 @@ const cardData = [
   },
 ];
 
+const container = {
+  animate: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+}
+
 export default function ProjectsSection() {
   const projectCards = cardData.map((card) => (
     <Card
@@ -112,7 +120,9 @@ export default function ProjectsSection() {
     <StyledSection>
       <h2 id="projects">Projects</h2>
       <motion.div
-        transition={{ staggerChildren: 0.3 }}
+        variants={container}
+        whileInView="animate"
+        viewport={{ once: true, amount: 0.5 }}
         className="card-container"
       >
         {projectCards}

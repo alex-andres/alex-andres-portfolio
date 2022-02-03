@@ -38,7 +38,8 @@ const project = {
     designURL:
       "https://xd.adobe.com/view/28e0b68e-256d-42fb-b495-fdaeb1908a45-7db3/",
     repositoryURL: "https://github.com/alex-andres/SMS-website ",
-    siteURL: "sheetmetalsystems.netlify.app/",
+    siteURL: "https://sheetmetalsystems.netlify.app/",
+    siteURLText: "sheetmetalsystems.netlify.app"
   },
   purposeAndGoals: {
     heading: "Project Purpose and Goals",

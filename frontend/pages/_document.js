@@ -38,7 +38,6 @@ export default class MyDocument extends Document {
           <FallbackStyles />
         </Head>
         <body>
-          <MagicScriptTag />
           <div id="mobile-nav-portal" />
           <Main />
           <NextScript />
