@@ -24,8 +24,12 @@ export const COLORS = {
     dark: "0deg 0% 37%;",
   },
   "mobile-bg": {
-    light: "hsla(0deg, 0%, 100%, 0.75)",
+    light: "hsl(0deg, 0%, 100%, 0.75)",
     dark: "hsla(0deg, 0%, 5%, 0.85)",
+  },
+  "twitter-hover": {
+    light: "hsl(180deg 14% 97%)",
+    dark: "hsl(180deg 14% 3%)",
   },
 };
 
