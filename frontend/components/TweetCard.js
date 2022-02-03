@@ -366,7 +366,9 @@ export default function TweetCard({
           </a>
         </div>
         {/* Tweet Body */}
-        <p className="twitter-body">{text}</p>
+        <a href={tweetURL} title="View Tweet on Twitter">
+          <p className="twitter-body">{text}</p>
+        </a>
         {/* Tweet Embed */}
         {media.length > 0 && (
           <a
