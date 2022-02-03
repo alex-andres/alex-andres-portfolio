@@ -428,7 +428,7 @@ export default function TweetCard({
             </div>
           </a>
           <a
-            href={`https://twitter.com/intent/reply?tweet_id=${id}`}
+            href={`https://twitter.com/intent/tweet?tweet_id=${id}`}
             title="Reply to this Tweet"
             aria-label="Reply to this Tweet"
           >
