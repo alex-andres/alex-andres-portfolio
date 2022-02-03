@@ -10,7 +10,7 @@ export const getTweets = async () => {
     "user.fields": "id,name,profile_image_url,protected,url,username,verified",
     "media.fields":
       "duration_ms,height,media_key,preview_image_url,type,url,width,public_metrics",
-    max_results: "10",
+    max_results: "5",
   });
 
   //making a call to the the twitter api with auth via a bearer token associated with my twitter dev account
