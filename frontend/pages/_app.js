@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import { ThemeProvider } from "../components/ThemeContext";
+// import { ThemeProvider } from "../components/ThemeContext";
+import { ThemeProvider } from "next-themes";
 import Layout from "../components/Layout";
 import { MagicScriptTag } from "../components/Theme/InlineCSSVariables";
 
@@ -24,33 +25,41 @@ const GlobalStyle = createGlobalStyle`
     --dropShadow: hsla(0, 0%, 0%, 30%);
     --maxWidth: 1164px;
     --boxShadow: 2px 2px 8px var(--dropShadow);
-    --shadow-color: var(--color-shadow);
+    --color-text: hsl(0, 0%, 2%);
+    --color-background: hsl(0, 0%, 100%);
+    --color-primary: hsl(340, 100%, 40%);
+    --color-secondary: hsl(0, 0%, 100%);
+    --color-secondary-text: hsl(0, 0%, 20%);
+    --color-shadows: 0deg 0% 63%;
+    --color-mobile-bg: hsla(0deg, 0%, 100%, 0.75);
+    --color-twitter-hover: hsl(180deg 14% 97%);
     --shadow-elevation-low:
-      0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
-      0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
-      1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+      0.3px 0.5px 0.7px hsl(var(--color-shadows) / 0.34),
+      0.4px 0.8px 1px -1.2px hsl(var(--color-shadows) / 0.34),
+      1px 2px 2.5px -2.5px hsl(var(--color-shadows) / 0.34);
     --shadow-elevation-medium:
-      0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.29),
-      0.7px 1.3px 1.7px -0.6px hsl(var(--shadow-color) / 0.29),
-      1.3px 2.6px 3.3px -1.2px hsl(var(--shadow-color) / 0.29),
-      2.6px 5.2px 6.5px -1.9px hsl(var(--shadow-color) / 0.29),
-      5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.29);
+      0.3px 0.5px 0.7px hsl(var(--color-shadows) / 0.29),
+      0.7px 1.3px 1.7px -0.6px hsl(var(--color-shadows) / 0.29),
+      1.3px 2.6px 3.3px -1.2px hsl(var(--color-shadows) / 0.29),
+      2.6px 5.2px 6.5px -1.9px hsl(var(--color-shadows) / 0.29),
+      5px 10px 12.6px -2.5px hsl(var(--color-shadows) / 0.29);
     --shadow-elevation-high:
-      0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.27),
-      1.2px 2.4px 3px -0.3px hsl(var(--shadow-color) / 0.27),
-      2.1px 4.3px 5.4px -0.6px hsl(var(--shadow-color) / 0.27),
-      3.2px 6.5px 8.2px -0.8px hsl(var(--shadow-color) / 0.27),
-      4.7px 9.4px 11.8px -1.1px hsl(var(--shadow-color) / 0.27),
-      6.8px 13.6px 17.1px -1.4px hsl(var(--shadow-color) / 0.27),
-      9.6px 19.3px 24.3px -1.7px hsl(var(--shadow-color) / 0.27),
-      13.5px 27px 34px -1.9px hsl(var(--shadow-color) / 0.27),
-      18.5px 37.1px 46.6px -2.2px hsl(var(--shadow-color) / 0.27),
-      25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.27);
+      0.3px 0.5px 0.7px hsl(var(--color-shadows) / 0.27),
+      1.2px 2.4px 3px -0.3px hsl(var(--color-shadows) / 0.27),
+      2.1px 4.3px 5.4px -0.6px hsl(var(--color-shadows) / 0.27),
+      3.2px 6.5px 8.2px -0.8px hsl(var(--color-shadows) / 0.27),
+      4.7px 9.4px 11.8px -1.1px hsl(var(--color-shadows) / 0.27),
+      6.8px 13.6px 17.1px -1.4px hsl(var(--color-shadows) / 0.27),
+      9.6px 19.3px 24.3px -1.7px hsl(var(--color-shadows) / 0.27),
+      13.5px 27px 34px -1.9px hsl(var(--color-shadows) / 0.27),
+      18.5px 37.1px 46.6px -2.2px hsl(var(--color-shadows) / 0.27),
+      25px 50px 62.9px -2.5px hsl(var(--color-shadows) / 0.27);
     margin: 0;
     line-height: calc(1em + 0.625rem);
     -webkit-font-smoothing: antialiased;
     font-size: 1rem;
-  
+    
+
   }
   /*
   1. Use a more-intuitive box-sizing model.
@@ -104,6 +113,17 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+[data-theme='dark']{
+  --color-text: hsl(0, 0%, 100%);
+  --color-background: hsl(0, 0%, 3%);
+  --color-primary: hsl(50, 100%, 50%);
+  --color-secondary: hsl(0, 0%, 5%);
+  --color-secondary-text: hsl(0, 0%, 100%);
+  --color-shadows: hsl(0, 0% 37%);
+  --color-mobile-bg: hsla(0, 0%, 5%, 0.85);
+  --color-twitter-hover: hsl(180, 14% 3%);
+}
 #__next{
   position: relative;
   ::before{
@@ -138,7 +158,6 @@ p, h1, h2, h3, h4, h5, h6 {
     background-color: var(--color-background);
     color: var(--color-text);
     line-height: 1.5;
-    transition: background-color easeOut .2s;
   }
   h1, h2, h3, h4, h5, h6, p{
     font-weight: 300;
