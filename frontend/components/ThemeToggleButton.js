@@ -1,11 +1,9 @@
-import { useContext } from "react";
 import ThemeToggleIcon from "./icons/ThemeToggleIcon";
-import { ThemeContext } from "./ThemeContext";
+import { useTheme } from 'next-themes'
 
 export default function ThemeToggleButton() {
-  const { colorMode, rawSetColorMode } = useContext(ThemeContext);
-
-  if (!colorMode) {
+  const { theme, setTheme } = useTheme();
+  if (!theme) {
     return null;
   }
   return (
@@ -14,12 +12,12 @@ export default function ThemeToggleButton() {
       title="Activate Dark Mode"
       className="ThemeToggleIconWrapper"
       onClick={() =>
-        colorMode === "light"
-          ? rawSetColorMode("dark")
-          : rawSetColorMode("light")
+        theme === "light"
+          ? setTheme("dark")
+          : setTheme("light")
       }
     >
-      <ThemeToggleIcon colorMode={colorMode} />
+      <ThemeToggleIcon theme={theme} />
     </button>
   );
 }

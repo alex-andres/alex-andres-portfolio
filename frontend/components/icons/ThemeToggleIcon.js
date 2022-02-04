@@ -25,9 +25,8 @@ const Animated = styled.path`
   }
 `;
 
-export default function ThemeToggleIcon({ className, colorMode }) {
-  console.log(colorMode);
-  if (colorMode == "dark") {
+export default function ThemeToggleIcon({ className, theme }) {
+  if (theme == "dark") {
     return (
       <IconContainer
         stroke="currentColor"
