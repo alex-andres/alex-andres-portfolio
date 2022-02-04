@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import { ThemeProvider } from "../components/ThemeContext";
+// import { ThemeProvider } from "../components/ThemeContext";
+import { ThemeProvider } from "next-themes";
 import Layout from "../components/Layout";
 import { MagicScriptTag } from "../components/Theme/InlineCSSVariables";
 
@@ -50,7 +51,49 @@ const GlobalStyle = createGlobalStyle`
     line-height: calc(1em + 0.625rem);
     -webkit-font-smoothing: antialiased;
     font-size: 1rem;
-  
+    --color-text:"hsl(0deg, 0%, 2%)", 
+    --color-background: ;
+    --color-primary: ;
+    --color-secondary: ;
+    --color-secondary-text: ;
+    --color-shadows:;
+    --color-mobile-bg: ;
+    --
+    export const COLORS = {
+  text: {
+    light: "hsl(0deg, 0%, 2%)", // white
+    dark: "hsl(0deg, 0%, 100%)", // near-black
+  },
+  background: {
+    light: "hsl(0deg, 0%, 100%)", // white
+    dark: "hsl(0deg, 0%, 10%)", // dark grey
+  },
+  primary: {
+    light: "hsl(340deg, 100%, 40%)", // Pinkish-red
+    dark: "hsl(50deg, 100%, 50%)", // Yellow
+  },
+  secondary: {
+    light: "hsl(0deg, 0%, 100%)", // Purplish-blue
+    dark: "hsl(0deg, 0%, 5%)", // near-black
+  },
+  "secondary-text": {
+    light: "hsl(0, 0%, 20%)", // dark-grey
+    dark: "hsl(0deg, 0%, 100%)", // near-black
+  },
+  shadows: {
+    light: "0deg 0% 63%;",
+    dark: "0deg 0% 37%;",
+  },
+  "mobile-bg": {
+    light: "hsl(0deg, 0%, 100%, 0.75)",
+    dark: "hsla(0deg, 0%, 5%, 0.85)",
+  },
+  "twitter-hover": {
+    light: "hsl(180deg 14% 97%)",
+    dark: "hsl(180deg 14% 3%)",
+  },
+};
+
   }
   /*
   1. Use a more-intuitive box-sizing model.
@@ -103,6 +146,10 @@ p, h1, h2, h3, h4, h5, h6 {
 */
 #root, #__next {
   isolation: isolate;
+}
+
+[data-theme='dark']{
+
 }
 #__next{
   position: relative;
