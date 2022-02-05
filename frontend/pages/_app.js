@@ -116,9 +116,9 @@ p, h1, h2, h3, h4, h5, h6 {
 
 [data-theme='dark']{
   --color-text: hsl(0, 0%, 100%);
-  --color-background: hsl(0, 0%, 3%);
+  --color-background: hsl(0, 0%, 5%);
   --color-primary: hsl(50, 100%, 50%);
-  --color-secondary: hsl(0, 0%, 5%);
+  --color-secondary: hsl(0, 0%, 4%);
   --color-secondary-text: hsl(0, 0%, 100%);
   --color-shadows: hsl(0, 0% 37%);
   --color-mobile-bg: hsla(0, 0%, 5%, 0.85);

@@ -8,11 +8,11 @@ const StyledSection = styled.section`
     line-height: 1.25;
     text-align: center;
     padding-bottom: 32px;
-    font-size: 2rem;
-    @media only screen and (min-width: 768px){
+    font-size: 1.8rem;
+    @media only screen and (min-width: 768px) {
       font-size: 2.5rem;
     }
-    @media only screen and (min-width: 1201px){
+    @media only screen and (min-width: 1201px) {
       font-size: 4rem;
     }
   }
@@ -27,13 +27,12 @@ const StyledSection = styled.section`
     font-size: 1.4rem;
     color: var(--aqua);
   }
-  .animated-letter{
+  .animated-letter {
     display: inline-block;
-    &.space{
+    &.space {
       width: 8px;
     }
   }
-
 `;
 
 const heading = {
@@ -46,7 +45,7 @@ const heading = {
 
 const letterAnimation = {
   initial: {
-    y: 20, 
+    y: 20,
     opacity: 0,
   },
   animate: {
@@ -54,13 +53,13 @@ const letterAnimation = {
     opacity: 1,
     transition: {
       ease: [0.6, 0.01, 0.01, 1],
-      duration: .8,
+      duration: 0.8,
     },
   },
 };
 const paragraphAnimation = {
   initial: {
-    y: 20, 
+    y: 20,
     opacity: 0,
   },
   animate: {
@@ -68,8 +67,8 @@ const paragraphAnimation = {
     opacity: 1,
     transition: {
       ease: [0.6, 0.01, 0.01, 1],
-      duration: .8,
-      delay: 1.8
+      duration: 0.8,
+      delay: 1.8,
     },
   },
 };
@@ -81,44 +80,51 @@ const linkAnimation = {
     opacity: 1,
     transition: {
       ease: [0.6, 0.01, 0.01, 1],
-      duration: .8,
-      delay: 2.2
+      duration: 0.8,
+      delay: 2.2,
     },
   },
 };
 
 const MotionSection = motion(StyledSection);
-const MotionLink = motion (StyledLink)
+const MotionLink = motion(StyledLink);
 
 const AnimatedHeadingLetters = ({ title }) => (
-  <motion.h2
-    variants={heading}
-    className="animated-title"
-  >
+  <motion.h2 variants={heading} className="animated-title">
     {[...title].map((letter, index) => {
-      if(letter === ' '){
-        return(
-          <motion.span key={`${letter}-${index}`} variants={letterAnimation} className="animated-letter space">
+      if (letter === " ") {
+        return (
+          <motion.span
+            key={`${letter}-${index}`}
+            variants={letterAnimation}
+            className="animated-letter space"
+          >
             {` `}
           </motion.span>
-        )
-      }else {
-        return(<motion.span key={`${letter}-${index}`} variants={letterAnimation} className="animated-letter">
-          {letter}
-        </motion.span>
-        )
+        );
+      } else {
+        return (
+          <motion.span
+            key={`${letter}-${index}`}
+            variants={letterAnimation}
+            className="animated-letter"
+          >
+            {letter}
+          </motion.span>
+        );
       }
-      
     })}
   </motion.h2>
 );
 
 export default function LetsWorkTogetherSection() {
-
   return (
-    <MotionSection variants={heading} initial="initial"
-    whileInView="animate"
-    viewport={{ once: true, amount: 0.75 }}>
+    <MotionSection
+      variants={heading}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true, amount: 0.75 }}
+    >
       <AnimatedHeadingLetters title={`Let's Work Together`} />
       <motion.p variants={paragraphAnimation}>
         Whether you have a question, would like to work together, or just want

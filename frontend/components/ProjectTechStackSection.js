@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import "@fontsource/roboto";
+import NetlifyLogo from "../public/images/techLogos/NetlifyLogo";
 
 const StyledSection = styled.section`
   display: flex;

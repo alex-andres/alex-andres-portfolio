@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
 const LogoContainer = styled.div`
-  height: ${(props) => (props.size ? props.size : "50px")};
-  svg {
+  height: ${(props) => (props.size ? props.size : "35px")};
+  @media only screen and (min-width: 540px) {
     height: ${(props) => (props.size ? props.size : "50px")};
+  }
+  svg {
+    height: ${(props) => (props.size ? props.size : "35px")};
+    @media only screen and (min-width: 540px) {
+      height: ${(props) => (props.size ? props.size : "50px")};
+    }
     width: auto;
   }
 `;

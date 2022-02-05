@@ -24,12 +24,11 @@ const StyledSection = styled.section`
       padding-bottom: 48px;
     }
   }
-  a{
+  a {
     font-size: 1rem;
   }
   .header-image-wrapper {
     padding-bottom: 32px;
-    margin-left: -10px;
     filter: drop-shadow(var(--boxShadow));
     @media only screen and (min-width: 960px) {
       margin-left: -16px;
@@ -134,12 +133,12 @@ export default function ProjectHeader({
             <strong>Live</strong>
             <p>
               <StyledLink
-                  title={siteURLText ? siteURLText : siteURL}
-                  href={siteURL}
-                  linkTitle={`View ${title} live site in new window`}
-                  anchor={true}
-                  external={true}
-                />
+                title={siteURLText ? siteURLText : siteURL}
+                href={siteURL}
+                linkTitle={`View ${title} live site in new window`}
+                anchor={true}
+                external={true}
+              />
             </p>
           </div>
         </div>
