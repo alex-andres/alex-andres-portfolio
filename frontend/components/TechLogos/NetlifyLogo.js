@@ -11,7 +11,9 @@ const IconContainer = styled.svg`
 
 export default function NetlifyLogo({ alt }) {
   return (
-    <IconContainer alt={alt}>
+    <IconContainer alt={alt}
+     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146.59 38.85"
+    >
       <radialGradient
         id="radial-gradient"
         cx="-871.95"

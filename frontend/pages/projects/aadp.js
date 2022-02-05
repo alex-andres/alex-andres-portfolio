@@ -6,10 +6,10 @@ import MaxWidthWrapper from "../../components/UI-Components/MaxWidthWrapper";
 import header from "../../public/images/projects/aadp/homepage-floating.png";
 import nextjsLogo from "../../public/images/techLogos/nextjs-logo.svg";
 import styledcomponentsLogo from "../../public/images/techLogos/styled-components.png";
-import mdxLogo from "../../public/images/techLogos/mdx-logo.svg";
-import keystonejsLogo from "../../public/images/techLogos/keystonejs-logo.svg";
-import typescriptLogo from "../../public/images/techLogos/typescript-logo.svg";
-import mongodbLogo from "../../public/images/techLogos/mongodb-logo.svg";
+// import mdxLogo from "../../public/images/techLogos/mdx-logo.svg";
+// import keystonejsLogo from "../../public/images/techLogos/keystonejs-logo.svg";
+// import typescriptLogo from "../../public/images/techLogos/typescript-logo.svg";
+// import mongodbLogo from "../../public/images/techLogos/mongodb-logo.svg";
 import ProjectTechStackSection from "../../components/ProjectTechStackSection";
 import about from "../../public/images/projects/aadp/gallery/about.png";
 import process from "../../public/images/projects/aadp/gallery/process.png";
@@ -52,32 +52,33 @@ const project = {
         src: nextjsLogo,
         techTitle: "NextJS",
         url: "https://nextjs.org/",
+        themed: true,
       },
       {
         src: styledcomponentsLogo,
         techTitle: "Styled Components",
         url: "https://styled-components.com/",
       },
-      {
-        src: mdxLogo,
-        techTitle: "MDX",
-        url: "https://mdxjs.com/",
-      },
-      {
-        src: keystonejsLogo,
-        techTitle: "Keystone JS",
-        url: "https://keystonejs.com/",
-      },
-      {
-        src: typescriptLogo,
-        techTitle: "TypeScript",
-        url: "https://www.typescriptlang.org/",
-      },
-      {
-        src: mongodbLogo,
-        techTitle: "MongoDB",
-        url: "https://www.mongodb.com/",
-      },
+      // {
+      //   src: mdxLogo,
+      //   techTitle: "MDX",
+      //   url: "https://mdxjs.com/",
+      // },
+      // {
+      //   src: keystonejsLogo,
+      //   techTitle: "Keystone JS",
+      //   url: "https://keystonejs.com/",
+      // },
+      // {
+      //   src: typescriptLogo,
+      //   techTitle: "TypeScript",
+      //   url: "https://www.typescriptlang.org/",
+      // },
+      // {
+      //   src: mongodbLogo,
+      //   techTitle: "MongoDB",
+      //   url: "https://www.mongodb.com/",
+      // },
     ],
     heading: "Tech Stack: What and Why?",
     body: [

@@ -24,7 +24,7 @@ const IconContainer = styled.svg`
 
 export default function ContentfulLogo({ alt }) {
   return (
-    <IconContainer alt={alt}>
+    <IconContainer alt={alt} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 165.06">
       <path
         class="ctfl-logo-cls-1"
         d="M49.22 115.5A45.64 45.64 0 0 1 36 83.11a45.16 45.16 0 0 1 13.45-32.27 18 18 0 1 0-25.36-25.47 81.67 81.67 0 0 0-.35 115.49 18 18 0 1 0 25.48-25.36z"
