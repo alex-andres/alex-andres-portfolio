@@ -4,11 +4,13 @@ import ProjectTextSection from "../../components/ProjectTextSection";
 import MaxWidthWrapper from "../../components/UI-Components/MaxWidthWrapper";
 import header from "../../public/images/projects/saaa/homepage-floating.png";
 import gatsbyLogo from "../../public/images/techLogos/gatsby-logo.svg";
+import gatsbyDarkLogo from "../../public/images/techLogos/gatsby-logo-dark.svg";
 import emotionLogo from "../../public/images/techLogos/emotion-logo.png";
 import contentfulLogo from "../../public/images/techLogos/contentful-logo.svg";
 import graphqlLogo from "../../public/images/techLogos/graphql-logo.svg";
 import reactLogo from "../../public/images/techLogos/react-logo.svg";
 import netlifyLogo from "../../public/images/techLogos/netlify-logo.svg";
+import netlifyDarkLogo from "../../public/images/techLogos/netlify-logo-dark.svg";
 import ProjectTechStackSection from "../../components/ProjectTechStackSection";
 import about from "../../public/images/projects/saaa/gallery/about.png";
 import blog from "../../public/images/projects/saaa/gallery/blog.png";
@@ -16,9 +18,11 @@ import contact from "../../public/images/projects/saaa/gallery/contact.png";
 import services from "../../public/images/projects/saaa/gallery/services.png";
 import ProjectScreenshotGallerySection from "../../components/ProjectScreenShotGallery";
 import mockup from "../../public/images/projectCards/saaa.jpg";
+import mockupDark from "../../public/images/projectCards/saaa-dark.jpg";
 import ProjectMockupSection from "../../components/ProjectMockupSection";
 import LetsWorkTogetherSection from "../../components/LetsWorkTogetherSection";
 import Head from "next/head";
+import { useTheme } from "next-themes";
 const StyledSAAAPage = styled.div``;
 
 const project = {
@@ -49,6 +53,7 @@ const project = {
     imageData: [
       {
         src: gatsbyLogo,
+        darkSrc: gatsbyDarkLogo,
         techTitle: "Gatsby",
         url: "https://www.gatsbyjs.com/",
       },
@@ -66,6 +71,7 @@ const project = {
       { src: reactLogo, techTitle: "React", url: "https://reactjs.org/" },
       {
         src: netlifyLogo,
+        darkSrc: netlifyDarkLogo,
         techTitle: "Netlify",
         url: "https://www.netlify.com/",
       },
@@ -100,11 +106,13 @@ const project = {
   },
   mockupImage: {
     src: mockup,
+    darkSrc: mockupDark,
     title: "Sabrina Andres Art Advisory",
   },
 };
 
 export default function SAAAPage() {
+  const { theme } = useTheme();
   return (
     <StyledSAAAPage>
       <Head>
@@ -124,7 +132,7 @@ export default function SAAAPage() {
       <MaxWidthWrapper>
         <ProjectHeader data={project.header} />
         <ProjectTextSection data={project.purposeAndGoals} />
-        <ProjectTechStackSection data={project.techStack} />
+        <ProjectTechStackSection data={project.techStack} theme={theme} />
         <ProjectTextSection data={project.challengesAndResolutions} />
         <ProjectScreenshotGallerySection data={project.screenshotGallery} />
         <ProjectTextSection data={project.keyTakeaways} />

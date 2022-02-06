@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
 import "@fontsource/roboto";
-import NetlifyLogo from "../public/images/techLogos/NetlifyLogo";
 
 const StyledSection = styled.section`
   display: flex;
@@ -30,6 +29,9 @@ const StyledSection = styled.section`
       margin-left: auto;
       margin-right: auto;
     }
+    .path-text {
+      fill: var(--color-text);
+    }
   }
   .text-container {
     max-width: 812px;
@@ -49,25 +51,50 @@ const StyledSection = styled.section`
 
 export default function ProjectTechStackSection({
   data: { imageData, heading, body },
+  theme,
 }) {
-  const images = imageData.map((image) => (
-    <a
-      href={image.url}
-      title={`View ${image.techTitle}'s Website`}
-      target="_blank"
-      rel="noreferrer"
-      className="image"
-      key={image.techTitle}
-    >
-      <div className="image-wrapper">
-        <Image
-          src={image.src}
-          alt={`${image.techTitle} Logo`}
-          layout="responsive"
-        />
-      </div>
-    </a>
-  ));
+  const images = imageData.map((image) => {
+    console.log(image);
+    if (image.darkSrc) {
+      return (
+        <a
+          href={image.url}
+          title={`View ${image.techTitle}'s Website`}
+          target="_blank"
+          rel="noreferrer"
+          className="image"
+          key={image.techTitle}
+        >
+          <div className="image-wrapper">
+            <Image
+              src={theme === "light" ? image.src : image.darkSrc}
+              alt={`${image.techTitle} Logo`}
+              layout="responsive"
+            />
+          </div>
+        </a>
+      );
+    } else {
+      return (
+        <a
+          href={image.url}
+          title={`View ${image.techTitle}'s Website`}
+          target="_blank"
+          rel="noreferrer"
+          className="image"
+          key={image.techTitle}
+        >
+          <div className="image-wrapper">
+            <Image
+              src={image.src}
+              alt={`${image.techTitle} Logo`}
+              layout="responsive"
+            />
+          </div>
+        </a>
+      );
+    }
+  });
   const bodyParagraphs = body.map((paragraph, index) => (
     <p key={index}>{paragraph}</p>
   ));

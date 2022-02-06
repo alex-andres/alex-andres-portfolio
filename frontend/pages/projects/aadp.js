@@ -5,11 +5,12 @@ import ProjectTextSection from "../../components/ProjectTextSection";
 import MaxWidthWrapper from "../../components/UI-Components/MaxWidthWrapper";
 import header from "../../public/images/projects/aadp/homepage-floating.png";
 import nextjsLogo from "../../public/images/techLogos/nextjs-logo.svg";
+import nextjsDarkLogo from "../../public/images/techLogos/nextjs-logo-dark.svg";
 import styledcomponentsLogo from "../../public/images/techLogos/styled-components.png";
-import mdxLogo from "../../public/images/techLogos/mdx-logo.svg";
-import keystonejsLogo from "../../public/images/techLogos/keystonejs-logo.svg";
-import typescriptLogo from "../../public/images/techLogos/typescript-logo.svg";
-import mongodbLogo from "../../public/images/techLogos/mongodb-logo.svg";
+// import mdxLogo from "../../public/images/techLogos/mdx-logo.svg";
+// import keystonejsLogo from "../../public/images/techLogos/keystonejs-logo.svg";
+// import typescriptLogo from "../../public/images/techLogos/typescript-logo.svg";
+// import mongodbLogo from "../../public/images/techLogos/mongodb-logo.svg";
 import ProjectTechStackSection from "../../components/ProjectTechStackSection";
 import about from "../../public/images/projects/aadp/gallery/about.png";
 import process from "../../public/images/projects/aadp/gallery/process.png";
@@ -17,8 +18,10 @@ import projectImage from "../../public/images/projects/aadp/gallery/project.png"
 import home from "../../public/images/projects/aadp/gallery/home.png";
 import ProjectScreenshotGallerySection from "../../components/ProjectScreenShotGallery";
 import mockup from "../../public/images/projectCards/aadp.jpg";
+import mockupDark from "../../public/images/projectCards/aadp-dark.jpg";
 import ProjectMockupSection from "../../components/ProjectMockupSection";
 import LetsWorkTogetherSection from "../../components/LetsWorkTogetherSection";
+import { useTheme } from "next-themes";
 const StyledAADPPage = styled.div``;
 
 const project = {
@@ -50,34 +53,36 @@ const project = {
     imageData: [
       {
         src: nextjsLogo,
+        darkSrc: nextjsDarkLogo,
         techTitle: "NextJS",
         url: "https://nextjs.org/",
+        themed: true,
       },
       {
         src: styledcomponentsLogo,
         techTitle: "Styled Components",
         url: "https://styled-components.com/",
       },
-      {
-        src: mdxLogo,
-        techTitle: "MDX",
-        url: "https://mdxjs.com/",
-      },
-      {
-        src: keystonejsLogo,
-        techTitle: "Keystone JS",
-        url: "https://keystonejs.com/",
-      },
-      {
-        src: typescriptLogo,
-        techTitle: "TypeScript",
-        url: "https://www.typescriptlang.org/",
-      },
-      {
-        src: mongodbLogo,
-        techTitle: "MongoDB",
-        url: "https://www.mongodb.com/",
-      },
+      // {
+      //   src: mdxLogo,
+      //   techTitle: "MDX",
+      //   url: "https://mdxjs.com/",
+      // },
+      // {
+      //   src: keystonejsLogo,
+      //   techTitle: "Keystone JS",
+      //   url: "https://keystonejs.com/",
+      // },
+      // {
+      //   src: typescriptLogo,
+      //   techTitle: "TypeScript",
+      //   url: "https://www.typescriptlang.org/",
+      // },
+      // {
+      //   src: mongodbLogo,
+      //   techTitle: "MongoDB",
+      //   url: "https://www.mongodb.com/",
+      // },
     ],
     heading: "Tech Stack: What and Why?",
     body: [
@@ -108,11 +113,13 @@ const project = {
   },
   mockupImage: {
     src: mockup,
+    darkSrc: mockupDark,
     title: "Alex Andres Developer Portfolio",
   },
 };
 
 export default function AADPPage() {
+  const { theme } = useTheme();
   return (
     <StyledAADPPage>
       <Head>
@@ -131,7 +138,7 @@ export default function AADPPage() {
       <MaxWidthWrapper>
         <ProjectHeader data={project.header} />
         <ProjectTextSection data={project.purposeAndGoals} />
-        <ProjectTechStackSection data={project.techStack} />
+        <ProjectTechStackSection data={project.techStack} theme={theme} />
         <ProjectScreenshotGallerySection data={project.screenshotGallery} />
         <ProjectMockupSection data={project.mockupImage} />
         <LetsWorkTogetherSection />
