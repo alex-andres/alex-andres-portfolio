@@ -4,7 +4,12 @@ import saaa from "../public/images/projectCards/saaa.jpg";
 import smsi from "../public/images/projectCards/smsi.jpg";
 import al4m from "../public/images/projectCards/al4m.jpg";
 import aadp from "../public/images/projectCards/aadp.jpg";
+import saaaDark from "../public/images/projectCards/saaa-dark.jpg";
+import smsiDark from "../public/images/projectCards/smsi-dark.jpg";
+import al4mDark from "../public/images/projectCards/al4m-dark.jpg";
+import aadpDark from "../public/images/projectCards/aadp-dark.jpg";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
 const StyledSection = styled.section`
   padding-bottom: 128px;
@@ -68,6 +73,7 @@ const cardData = [
   {
     title: "Sabrina Andres Art Advisory",
     imageSrc: saaa,
+    darkImageSrc: saaaDark,
     description:
       "Custom Business Website designed with Adobe XD, built with Gatsby, Emotion CSS, Framer Motion, GraphQL, Contentful, Netlify and multiple integrated APIs",
     path: "/projects/saaa",
@@ -75,6 +81,7 @@ const cardData = [
   {
     title: "Sheet Metal Systems Inc.",
     imageSrc: smsi,
+    darkImageSrc: smsiDark,
     description:
       "Custom Business Website designed with Adobe XD, built with Gatsby, Styled Components, Framer Motion, GraphQL, Sanity, Netlify and multiple integrated APIs",
     path: "/projects/smsi",
@@ -82,6 +89,7 @@ const cardData = [
   {
     title: "Asher Luzatto for Mayor",
     imageSrc: al4m,
+    darkImageSrc: al4mDark,
     description:
       "Los Angeles Mayoral Campaign Website built with NextJS, Styled Components, Node, Firebase Functions, Firestore, and Firebase Hosting with multiple integrated APIs",
     path: "/projects/al4m",
@@ -89,6 +97,7 @@ const cardData = [
   {
     title: "Alex Andres Dev Portfolio",
     imageSrc: aadp,
+    darkImageSrc: aadpDark,
     description:
       "Portfolio Website built with NextJS, TypeScript, MDX,  Tailwind, Framer Motion, GraphQL, Apollo, KeystoneJS, Node, and Vercel with multiple integrated APIs",
     path: "/projects/aadp",
@@ -101,13 +110,16 @@ const container = {
       staggerChildren: 0.05,
     },
   },
-}
+};
 
 export default function ProjectsSection() {
+  const { theme } = useTheme();
+
   const projectCards = cardData.map((card) => (
     <Card
       title={card.title}
       imageSrc={card.imageSrc}
+      darkImageSrc={card.darkImageSrc}
       alt={`Desktop and Mobile Mockups of ${card.title}`}
       description={card.description}
       buttonText="View Project"

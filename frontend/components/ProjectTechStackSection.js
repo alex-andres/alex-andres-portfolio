@@ -29,7 +29,7 @@ const StyledSection = styled.section`
       margin-left: auto;
       margin-right: auto;
     }
-    .path-text{
+    .path-text {
       fill: var(--color-text);
     }
   }
@@ -51,43 +51,49 @@ const StyledSection = styled.section`
 
 export default function ProjectTechStackSection({
   data: { imageData, heading, body },
+  theme,
 }) {
   const images = imageData.map((image) => {
     console.log(image);
-    if (image.themed) {
-      return(
-    <a
-      href={image.url}
-      title={`View ${image.techTitle}'s Website`}
-      target="_blank"
-      rel="noreferrer"
-      className="image"
-      key={image.techTitle}
-    >
-      <div className="image-wrapper">
-        {image.src.src}
-      </div>
-    </a>
-  )} else {
-    return(
-    <a
-      href={image.url}
-      title={`View ${image.techTitle}'s Website`}
-      target="_blank"
-      rel="noreferrer"
-      className="image"
-      key={image.techTitle}
-    >
-      <div className="image-wrapper">
-        <Image
-          src={image.src}
-          alt={`${image.techTitle} Logo`}
-          layout="responsive"
-        />
-      </div>
-    </a>)
-  }
-  
+    if (image.darkSrc) {
+      return (
+        <a
+          href={image.url}
+          title={`View ${image.techTitle}'s Website`}
+          target="_blank"
+          rel="noreferrer"
+          className="image"
+          key={image.techTitle}
+        >
+          <div className="image-wrapper">
+            <Image
+              src={theme === "light" ? image.src : image.darkSrc}
+              alt={`${image.techTitle} Logo`}
+              layout="responsive"
+            />
+          </div>
+        </a>
+      );
+    } else {
+      return (
+        <a
+          href={image.url}
+          title={`View ${image.techTitle}'s Website`}
+          target="_blank"
+          rel="noreferrer"
+          className="image"
+          key={image.techTitle}
+        >
+          <div className="image-wrapper">
+            <Image
+              src={image.src}
+              alt={`${image.techTitle} Logo`}
+              layout="responsive"
+            />
+          </div>
+        </a>
+      );
+    }
   });
   const bodyParagraphs = body.map((paragraph, index) => (
     <p key={index}>{paragraph}</p>

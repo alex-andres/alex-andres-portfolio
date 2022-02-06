@@ -4,8 +4,10 @@ import ProjectTextSection from "../../components/ProjectTextSection";
 import MaxWidthWrapper from "../../components/UI-Components/MaxWidthWrapper";
 import header from "../../public/images/projects/al4m/homepage-floating.png";
 import nextjsLogo from "../../public/images/techLogos/nextjs-logo.svg";
+import nextjsDarkLogo from "../../public/images/techLogos/nextjs-logo-dark.svg";
 import styledcomponentsLogo from "../../public/images/techLogos/styled-components.png";
 import firebaseLogo from "../../public/images/techLogos/firebase-logo.svg";
+import firebaseDarkLogo from "../../public/images/techLogos/firebase-logo-dark.svg";
 import reactLogo from "../../public/images/techLogos/react-logo.svg";
 import ProjectTechStackSection from "../../components/ProjectTechStackSection";
 import about from "../../public/images/projects/al4m/gallery/about.png";
@@ -14,9 +16,11 @@ import joinUs from "../../public/images/projects/al4m/gallery/join-us.png";
 import shop from "../../public/images/projects/al4m/gallery/shop.png";
 import ProjectScreenshotGallerySection from "../../components/ProjectScreenShotGallery";
 import mockup from "../../public/images/projectCards/al4m.jpg";
+import mockupDark from "../../public/images/projectCards/al4m-dark.jpg";
 import ProjectMockupSection from "../../components/ProjectMockupSection";
 import LetsWorkTogetherSection from "../../components/LetsWorkTogetherSection";
 import Head from "next/head";
+import { useTheme } from "next-themes";
 const StyledAL4MPage = styled.div``;
 
 const project = {
@@ -45,6 +49,7 @@ const project = {
     imageData: [
       {
         src: nextjsLogo,
+        darkSrc: nextjsDarkLogo,
         techTitle: "NextJS",
         url: "https://nextjs.org/",
       },
@@ -55,6 +60,7 @@ const project = {
       },
       {
         src: firebaseLogo,
+        darkSrc: firebaseDarkLogo,
         techTitle: "Firebase",
         url: "https://firebase.google.com/",
       },
@@ -90,11 +96,13 @@ const project = {
   },
   mockupImage: {
     src: mockup,
+    darkSrc: mockupDark,
     title: "Asher Luzatto for Mayor",
   },
 };
 
 export default function AL4mPage() {
+  const { theme } = useTheme();
   return (
     <StyledAL4MPage>
       <Head>
@@ -113,7 +121,7 @@ export default function AL4mPage() {
       <MaxWidthWrapper>
         <ProjectHeader data={project.header} />
         <ProjectTextSection data={project.purposeAndGoals} />
-        <ProjectTechStackSection data={project.techStack} />
+        <ProjectTechStackSection data={project.techStack} theme={theme} />
         <ProjectTextSection data={project.challengesAndResolutions} />
         <ProjectScreenshotGallerySection data={project.screenshotGallery} />
         <ProjectTextSection data={project.keyTakeaways} />

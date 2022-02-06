@@ -4,11 +4,13 @@ import ProjectTextSection from "../../components/ProjectTextSection";
 import MaxWidthWrapper from "../../components/UI-Components/MaxWidthWrapper";
 import header from "../../public/images/projects/smsi/homepage-floating.png";
 import gatsbyLogo from "../../public/images/techLogos/gatsby-logo.svg";
+import gatsbyDarkLogo from "../../public/images/techLogos/gatsby-logo-dark.svg";
 import styledcomponentsLogo from "../../public/images/techLogos/styled-components.png";
 import sanityLogo from "../../public/images/techLogos/sanity-logo.svg";
 import graphqlLogo from "../../public/images/techLogos/graphql-logo.svg";
 import reactLogo from "../../public/images/techLogos/react-logo.svg";
 import netlifyLogo from "../../public/images/techLogos/netlify-logo.svg";
+import netlifyDarkLogo from "../../public/images/techLogos/netlify-logo-dark.svg";
 import ProjectTechStackSection from "../../components/ProjectTechStackSection";
 import projects from "../../public/images/projects/smsi/gallery/projects.png";
 import contact from "../../public/images/projects/smsi/gallery/contact.png";
@@ -16,9 +18,11 @@ import theCannery from "../../public/images/projects/smsi/gallery/the-cannery.pn
 import customFabrication from "../../public/images/projects/smsi/gallery/custom-fabrication.png";
 import ProjectScreenshotGallerySection from "../../components/ProjectScreenShotGallery";
 import mockup from "../../public/images/projectCards/smsi.jpg";
+import mockupDark from "../../public/images/projectCards/smsi-dark.jpg";
 import ProjectMockupSection from "../../components/ProjectMockupSection";
 import LetsWorkTogetherSection from "../../components/LetsWorkTogetherSection";
 import Head from "next/head";
+import { useTheme } from "next-themes";
 const StyledSMSIPage = styled.div``;
 
 const project = {
@@ -39,7 +43,7 @@ const project = {
       "https://xd.adobe.com/view/28e0b68e-256d-42fb-b495-fdaeb1908a45-7db3/",
     repositoryURL: "https://github.com/alex-andres/SMS-website ",
     siteURL: "https://sheetmetalsystems.netlify.app/",
-    siteURLText: "sheetmetalsystems.netlify.app"
+    siteURLText: "sheetmetalsystems.netlify.app",
   },
   purposeAndGoals: {
     heading: "Project Purpose and Goals",
@@ -51,6 +55,7 @@ const project = {
     imageData: [
       {
         src: gatsbyLogo,
+        darkSrc: gatsbyDarkLogo,
         techTitle: "Gatsby",
         url: "https://www.gatsbyjs.com/",
       },
@@ -68,6 +73,7 @@ const project = {
       { src: reactLogo, techTitle: "React", url: "https://reactjs.org/" },
       {
         src: netlifyLogo,
+        darkSrc: netlifyDarkLogo,
         techTitle: "Netlify",
         url: "https://www.netlify.com/",
       },
@@ -101,11 +107,13 @@ const project = {
   },
   mockupImage: {
     src: mockup,
+    darkSrc: mockupDark,
     title: "Sabrina Andres Art Advisory",
   },
 };
 
 export default function SMSIPage() {
+  const { theme } = useTheme();
   return (
     <StyledSMSIPage>
       <Head>
@@ -123,7 +131,7 @@ export default function SMSIPage() {
       <MaxWidthWrapper>
         <ProjectHeader data={project.header} />
         <ProjectTextSection data={project.purposeAndGoals} />
-        <ProjectTechStackSection data={project.techStack} />
+        <ProjectTechStackSection data={project.techStack} theme={theme} />
         <ProjectTextSection data={project.challengesAndResolutions} />
         <ProjectScreenshotGallerySection data={project.screenshotGallery} />
         <ProjectTextSection data={project.keyTakeaways} />

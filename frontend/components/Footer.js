@@ -68,6 +68,8 @@ const StyledFooter = styled.footer`
 `;
 
 export default function Footer() {
+  const date = new Date();
+  const year = date.getFullYear();
   return (
     <StyledFooter>
       <div className="Footer__InnerWrapper">
@@ -117,7 +119,7 @@ export default function Footer() {
           </a>
         </div>
         <div className="Footer__Copyright">
-          Alex Andres © 2021 <br /> All Rights Reserved
+          Alex Andres © {year} <br /> All Rights Reserved
         </div>
       </div>
     </StyledFooter>
