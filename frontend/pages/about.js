@@ -7,7 +7,7 @@ import LetsWorkTogetherSection from "../components/LetsWorkTogetherSection";
 import SpotifyPlayingSection from "../components/SpotifyPlayingSection";
 import TwitterFeedSection from "../components/TwitterFeedSection";
 import MaxWidthWrapper from "../components/UI-Components/MaxWidthWrapper";
-import { getCurrentlyPlaying } from "../library/spotify";
+import { getAccessToken, getCurrentlyPlaying } from "../library/spotify";
 import { getTweets } from "../library/twitter";
 import costaRica from "../public/images/costa-rica-alex.jpg";
 
@@ -59,6 +59,6 @@ export default function AboutPage({ tweets, currentSong }) {
 
 export async function getServerSideProps() {
   const tweets = await getTweets();
-  const currentSong = await getCurrentlyPlaying();
+  const currentSong = await (await getCurrentlyPlaying()).json();
   return { props: { tweets, currentSong } };
 }

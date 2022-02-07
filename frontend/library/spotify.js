@@ -29,5 +29,5 @@ export const getCurrentlyPlaying = async () => {
       Authorization: `Bearer ${access_token}`,
     },
   });
-  return response.json();
+  return response;
 };

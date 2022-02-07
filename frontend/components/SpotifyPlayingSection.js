@@ -7,7 +7,10 @@ const StyledSection = styled.section`
   background-color: var(--color-spotify-background);
   border-radius: 8px;
   padding: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 64px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 128px;
+  }
   .card-body {
     display: flex;
     align-items: center;
