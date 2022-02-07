@@ -4,8 +4,10 @@ import styled from "styled-components";
 import HeaderSection from "../components/HeaderSection";
 import ImageTextSection from "../components/ImageTextSection";
 import LetsWorkTogetherSection from "../components/LetsWorkTogetherSection";
+import SpotifyPlayingSection from "../components/SpotifyPlayingSection";
 import TwitterFeedSection from "../components/TwitterFeedSection";
 import MaxWidthWrapper from "../components/UI-Components/MaxWidthWrapper";
+import { getAccessToken, getCurrentlyPlaying } from "../library/spotify";
 import { getTweets } from "../library/twitter";
 import costaRica from "../public/images/costa-rica-alex.jpg";
 
@@ -27,7 +29,7 @@ const aboutCardData = [
     ],
   },
 ];
-export default function AboutPage({ tweets }) {
+export default function AboutPage({ tweets, currentSong }) {
   return (
     <StyledAboutPage>
       <Head>
@@ -48,14 +50,15 @@ export default function AboutPage({ tweets }) {
           <ImageTextSection data={aboutCardData} about={true} />
         </motion.div>
         <TwitterFeedSection tweets={tweets} />
+        <SpotifyPlayingSection currentSong={currentSong} />
         <LetsWorkTogetherSection />
       </MaxWidthWrapper>
     </StyledAboutPage>
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const tweets = await getTweets();
-
-  return { props: { tweets } };
+  const currentSong = await (await getCurrentlyPlaying()).json();
+  return { props: { tweets, currentSong } };
 }
