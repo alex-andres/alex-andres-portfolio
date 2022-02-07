@@ -32,7 +32,8 @@ const GlobalStyle = createGlobalStyle`
     --color-secondary-text: hsl(0, 0%, 20%);
     --color-shadows: 0deg 0% 63%;
     --color-mobile-bg: hsla(0deg, 0%, 100%, 0.75);
-    --color-twitter-hover: hsl(180deg 14% 97%);
+    --color-twitter-hover: hsl(180, 14%, 97%);
+    --color-spotify-background: hsl(0, 0%, 95%);
     --shadow-elevation-low:
       0.3px 0.5px 0.7px hsl(var(--color-shadows) / 0.34),
       0.4px 0.8px 1px -1.2px hsl(var(--color-shadows) / 0.34),
@@ -122,7 +123,8 @@ p, h1, h2, h3, h4, h5, h6 {
   --color-secondary-text: hsl(0, 0%, 100%);
   --color-shadows: hsl(0, 0% 37%);
   --color-mobile-bg: hsla(0, 0%, 5%, 0.85);
-  --color-twitter-hover: hsl(180, 14% 3%);
+  --color-twitter-hover: hsl(180, 14%, 3%);
+  --color-spotify-background: hsl(0, 0%, 9%);
 }
 #__next{
   position: relative;
