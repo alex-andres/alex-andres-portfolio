@@ -21,7 +21,7 @@ const StyledCard = styled.article`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin-bottom: 16px;
   &:hover{
-    background-color: hsl(180deg 14% 97%);
+    background-color: var(--color-twitter-hover);
   }
   a, a:visited{
         color: hsl(206, 15%, 38%);
