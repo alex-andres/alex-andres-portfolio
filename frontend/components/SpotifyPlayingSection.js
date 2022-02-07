@@ -38,6 +38,9 @@ const StyledSection = styled.section`
   p {
     font-size: 0.9rem;
   }
+  .not-playing-message {
+    text-align: center;
+  }
 `;
 
 function SpotifyCard({ currentSong }) {
