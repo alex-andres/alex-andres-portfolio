@@ -57,7 +57,7 @@ export default function AboutPage({ tweets, currentSong }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const tweets = await getTweets();
   return { props: { tweets } };
 }
