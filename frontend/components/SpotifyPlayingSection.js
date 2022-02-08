@@ -1,6 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
 import spotifyLogo from "../public/images/techLogos/spotify-logo.svg";
+import useSWR from "swr";
+import fetcher from "../library/fetcher";
 
 const StyledSection = styled.section`
   max-width: 364px;
@@ -26,6 +28,9 @@ const StyledSection = styled.section`
     width: 32px;
     height: 32px;
   }
+  a {
+    color: var(--color-text);
+  }
   .song-container {
     display: flex;
     justify-content: center;
@@ -39,31 +44,35 @@ const StyledSection = styled.section`
     font-size: 0.9rem;
   }
   .not-playing-message {
+    width: 100%;
     text-align: center;
   }
 `;
 
-function SpotifyCard({ currentSong }) {
+function SpotifyCard({ data: { songUrl, title, artist, albumImage } }) {
   return (
     <div className="currently-playing-container">
-      <div className="song-container">
-        <div className="image-container">
-          <Image
-            src={currentSong.item.album.images[2].url}
-            height={currentSong.item.album.images[2].height}
-            width={currentSong.item.album.images[2].width}
-          />
+      <a href={songUrl} title={`Listen to ${title} by ${artist} on Spotify`}>
+        <div className="song-container">
+          <div className="image-container">
+            <Image
+              src={albumImage.url}
+              height={albumImage.height}
+              width={albumImage.width}
+            />
+          </div>
+          <div className="text-container">
+            <p>{title}</p>
+            <p>{artist}</p>
+          </div>
         </div>
-        <div className="text-container">
-          <p>{currentSong.item.name}</p>
-          <p>{currentSong.item.artists[0].name}</p>
-        </div>
-      </div>
+      </a>
     </div>
   );
 }
 
-export default function SpotifyPlayingSection({ currentSong }) {
+export default function SpotifyPlayingSection() {
+  const { data } = useSWR("/api/spotify", fetcher);
   return (
     <StyledSection>
       <div className="card-heading">
@@ -77,9 +86,8 @@ export default function SpotifyPlayingSection({ currentSong }) {
         <h3>Currently Listening To</h3>
       </div>
       <div className="card-body">
-        {currentSong.is_playing &&
-        currentSong.currently_playing_type === "track" ? (
-          <SpotifyCard currentSong={currentSong} />
+        {data && data.isPlaying && data.audioType === "track" ? (
+          <SpotifyCard data={data} />
         ) : (
           <div className="not-playing-message">
             <p>Not Currently Playing Music</p>

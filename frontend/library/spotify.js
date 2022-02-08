@@ -24,10 +24,9 @@ export const getAccessToken = async () => {
 export const getCurrentlyPlaying = async () => {
   //making a call to the the spotify api with auth via a bearer token associated with my spotify dev account
   const { access_token } = await getAccessToken();
-  const response = await fetch(CURRENTLY_PLAYING_ENDPOINT, {
+  return fetch(CURRENTLY_PLAYING_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   });
-  return response;
 };

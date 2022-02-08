@@ -50,7 +50,7 @@ export default function AboutPage({ tweets, currentSong }) {
           <ImageTextSection data={aboutCardData} about={true} />
         </motion.div>
         <TwitterFeedSection tweets={tweets} />
-        <SpotifyPlayingSection currentSong={currentSong} />
+        <SpotifyPlayingSection />
         <LetsWorkTogetherSection />
       </MaxWidthWrapper>
     </StyledAboutPage>
@@ -59,6 +59,5 @@ export default function AboutPage({ tweets, currentSong }) {
 
 export async function getServerSideProps() {
   const tweets = await getTweets();
-  const currentSong = await (await getCurrentlyPlaying()).json();
-  return { props: { tweets, currentSong } };
+  return { props: { tweets } };
 }
