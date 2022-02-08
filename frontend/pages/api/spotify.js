@@ -19,10 +19,10 @@ export default async function handler(req, res) {
   const albumImage = song.item.album.images[2];
   const songUrl = song.item.external_urls.spotify;
   const audioType = song.currently_playing_type;
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=60, stale-while-revalidate=30"
-  );
+  // res.setHeader(
+  //   "Cache-Control",
+  //   "public, s-maxage=10, stale-while-revalidate=2"
+  // );
 
   return res.status(200).json({
     album,
