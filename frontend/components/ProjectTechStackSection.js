@@ -54,7 +54,6 @@ export default function ProjectTechStackSection({
   theme,
 }) {
   const images = imageData.map((image) => {
-    console.log(image);
     if (image.darkSrc) {
       return (
         <a
