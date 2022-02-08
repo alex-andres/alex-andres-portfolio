@@ -5,7 +5,7 @@ import useSWR from "swr";
 import fetcher from "../library/fetcher";
 
 const StyledSection = styled.section`
-  max-width: 364px;
+  max-width: 350px;
   background-color: var(--color-spotify-background);
   border-radius: 8px;
   padding: 16px;
@@ -15,8 +15,10 @@ const StyledSection = styled.section`
   }
   .card-body {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 16px;
+    width: 100%;
   }
   .card-heading {
     display: flex;
