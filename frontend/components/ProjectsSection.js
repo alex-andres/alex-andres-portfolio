@@ -99,7 +99,7 @@ const cardData = [
     imageSrc: aadp,
     darkImageSrc: aadpDark,
     description:
-      "Portfolio Website built with NextJS, TypeScript, MDX,  Tailwind, Framer Motion, GraphQL, Apollo, KeystoneJS, Node, and Vercel with multiple integrated APIs",
+      "Portfolio Website built with NextJS,  MDX,  Styled Components, Framer Motion, Node, and Vercel with multiple integrated APIs",
     path: "/projects/aadp",
   },
 ];
