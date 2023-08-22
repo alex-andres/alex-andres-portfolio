@@ -143,7 +143,7 @@ export default function Navbar() {
                   >
                     <div className="NavItem__NavItemLink">
                       <StyledLink
-                        href="/Alex-Andres-Resume-2022.pdf"
+                        href="/Alex-Andres-CV-2023.pdf"
                         anchor={true}
                         title="Resume"
                       />

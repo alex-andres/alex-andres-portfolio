@@ -203,7 +203,7 @@ export default function MobileNavMenu() {
             >
               <a
                 onClick={closeMenu}
-                href="/Alex-Andres-Resume-2022.pdf"
+                href="/Alex-Andres-CV-2023.pdf"
                 className="MobileNav__NavLink"
                 target="_blank"
                 rel="noreferrer"
