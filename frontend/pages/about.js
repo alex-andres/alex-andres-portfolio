@@ -8,7 +8,6 @@ import SpotifyPlayingSection from "../components/SpotifyPlayingSection";
 import TwitterFeedSection from "../components/TwitterFeedSection";
 import MaxWidthWrapper from "../components/UI-Components/MaxWidthWrapper";
 import { getAccessToken, getCurrentlyPlaying } from "../library/spotify";
-import { getTweets } from "../library/twitter";
 import costaRica from "../public/images/costa-rica-alex.jpg";
 
 const StyledAboutPage = styled.div``;
@@ -23,9 +22,9 @@ const aboutCardData = [
     title: "Hiking in Costa Rica",
     src: costaRica,
     body: [
-      "I’m a web developer from Pasadena, CA. Being raised by parents who both were teachers (math and art), I have always had the passion for learning, visual creativity and logical problem solving, all of which are satisfied by my career in web development.",
-      "I strive to create memorable user experiences on the web through intuitive designs and writing clean html, css, and javascript. My current tech interest include React, Styled Components, Node, Express, Next JS, and Gatsby.",
-      "When I’m not working, I am playing sunrise tennis, exploring the world with my lovely wife, and cooking meals for and enjoying the company of my family and friends.",
+      "I’m a web developer from Pasadena, California, who recently moved to Zurich, Switzerland. Being raised by parents who both were teachers (math and art), I have always had the passion for learning, visual creativity and logical problem solving, all of which are satisfied by my career in web development.",
+      "I strive to create memorable user experiences on the web through intuitive designs and writing clean html, css, and javascript. My current tech interest include React, Styled Components, Node, Express, Next JS, and learning Python.",
+      "When I’m not working, I am spending time with  my lovely wife and our son, playing tennis and hiking, and cooking meals for and enjoying the company of my family and friends.",
     ],
   },
 ];
@@ -55,4 +54,3 @@ export default function AboutPage({ tweets, currentSong }) {
     </StyledAboutPage>
   );
 }
-
