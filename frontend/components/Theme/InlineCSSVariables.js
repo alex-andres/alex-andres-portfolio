@@ -1,5 +1,4 @@
 import React from "react";
-import Terser from "terser";
 import Script from "next/script";
 
 import {
@@ -44,9 +43,7 @@ export function MagicScriptTag() {
     .replace("🔑", COLOR_MODE_KEY)
     .replace("⚡️", INITIAL_COLOR_MODE_CSS_PROP);
 
-  let calledFunction = `(${boundFn})()`;
-
-  calledFunction = Terser.minify(calledFunction).code;
+  const calledFunction = `(${boundFn})()`;
 
   // eslint-disable-next-line react/no-danger
   return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
