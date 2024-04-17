@@ -49,7 +49,6 @@ export default function AboutPage({ tweets, currentSong }) {
           <HeaderSection data={headerData} />
           <ImageTextSection data={aboutCardData} about={true} />
         </motion.div>
-        <TwitterFeedSection tweets={tweets} />
         <SpotifyPlayingSection />
         <LetsWorkTogetherSection />
       </MaxWidthWrapper>
@@ -57,7 +56,3 @@ export default function AboutPage({ tweets, currentSong }) {
   );
 }
 
-export async function getStaticProps() {
-  const tweets = await getTweets();
-  return { props: { tweets } };
-}
